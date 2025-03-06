@@ -60,7 +60,7 @@ import requests
 
 #################### Globale Datenstrukturen und Variablen, die die Struktur der Dash App bestimmen 
 #IP-Adresse des Servers
-host_ip = "http://127.0.0.1"
+host_ip = "http://188.245.219.175"
 dash_port = "8050"
 flask_port = "5000"
 
@@ -1658,7 +1658,7 @@ app.clientside_callback(
 #####Startet Dash (im Main-Thread)
 def run_dash():
     print("Dash wird gestartet.")
-    app.run_server(debug=True, host='localhost', port=8050)
+    app.run_server(debug=True, host='188.245.219.175', port=8050)
     print("Dash wurde gestartet.")
     #socketio_dashclient.connect(f"http://{host_ip}:{flask_port}")
     #print("Dash: Der Socket vom Flask aus wurde gestartet.")
