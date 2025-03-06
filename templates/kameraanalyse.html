@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Camera App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #cameraWindow {
+            display: none;
+            margin-top: 20px;
+        }
+
+        button {
+            font-size: 16px;
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Main Window</h1>
+    <button onclick="openCameraWindow()">Open Camera Window</button>
+
+    <div id="cameraWindow">
+        <h2>Camera Window</h2>
+        <video id="video" width="640" height="480" autoplay></video>
+        <br>
+        <button onclick="captureAndClassify()">Capture and classify image</button>
+        <br>
+        <canvas id="canvas" width="640" height="480" style="display:none;"></canvas>
+    </div>
+
+    <script>
+        let stream;
+
+        function openCameraWindow() {
+            document.getElementById('cameraWindow').style.display = 'block';
+            startVideoStream();
+        }
+
+        async function startVideoStream() {
+            try {
+                stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                document.getElementById('video').srcObject = stream;
+            } catch (err) {
+                console.error("Error: " + err);
+                alert("Failed to initialize the camera.");
+            }
+        }
+
+        function captureAndClassify() {
+            const video = document.getElementById('video');
+            const canvas = document.getElementById('canvas');
+            const context = canvas.getContext('2d');
+
+            // Capture the current video frame
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+            // Convert the captured image to base64
+            const imageDataUrl = canvas.toDataURL('image/jpeg');
+
+            // Here you would normally send the image data to a server for classification
+            // For this example, we'll just show a placeholder result
+            classifyImage(imageDataUrl);
+        }
+
+        function classifyImage(imageData) {
+            // Placeholder for image classification
+            // In a real application, you would send this data to a server for processing
+            alert("Image captured and ready for classification.\nClassification result would appear here.");
+        }
+
+        // Clean up resources when the page is closed
+        window.onbeforeunload = function() {
+            if (stream) {
+                stream.getTracks().forEach(track => track.stop());
+            }
+        };
+    </script>
+</body>
+</html>

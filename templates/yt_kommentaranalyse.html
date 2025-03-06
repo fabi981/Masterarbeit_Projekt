@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>YouTube Kommentar-Analyse</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        button {
+            font-size: 16px;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        #result {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>YouTube Kommentar-Analyse</h1>
+
+    <p>
+        Wir werden im Folgenden die Emotionen eines YouTube-Kommentars auswerten.<br>
+        Öffne YouTube mit dem Button, suche ein Video, kopiere einen Kommentar und füge ihn hier ein.
+    </p>
+
+    <button onclick="openYouTube()">YouTube-Suche öffnen</button>
+
+    <p>Hier den YouTube-Kommentar einfügen:</p>
+    <textarea id="commentInput" rows="2" cols="50"></textarea>
+
+    <button onclick="analyzeText()">Auswerten</button>
+    <button onclick="clearText()">Leeren</button>
+
+    <h2>Ergebnis:</h2>
+    <div id="result"></div>
+
+    <script>
+        function openYouTube() {
+            window.open("https://www.youtube.com/results?search_query=", "_blank");
+        }
+
+        function analyzeText() {
+            var comment = document.getElementById("commentInput").value;
+            if (comment.trim() === "") {
+                alert("Bitte Text eingeben!");
+                return;
+            }
+            // Hier würde normalerweise die Analyse-Logik stehen
+            document.getElementById("result").innerText = "Analyse-Ergebnis würde hier erscheinen.";
+        }
+
+        function clearText() {
+            document.getElementById("commentInput").value = "";
+            document.getElementById("result").innerText = "";
+        }
+    </script>
+</body>
+</html>
