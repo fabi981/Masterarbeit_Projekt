@@ -1,0 +1,7 @@
+dash==2.11.1
+dash-bootstrap-components==1.4.1
+flask==2.3.3
+flask-socketio==5.3.2
+redis==5.0.9
+requests==2.31.0
+python-socketio==5.8.0
