@@ -778,7 +778,7 @@ app.layout = html.Div([
                 'fontSize': '16px',
                 'color': '#333'
             }),
-            html.A('Login', href='http://localhost:5000/authenticate', style={
+            html.A('Login', href=f'{host_ip}:{flask_port}/authenticate', style={
             'marginRight': '15px',
             'backgroundColor': '#28a745',
             'color': 'white',
@@ -791,7 +791,7 @@ app.layout = html.Div([
             'borderRadius': '3px',
             'cursor': 'pointer'
             }),
-            html.A('Session loeschen', href='http://localhost:5000/clear-session', style={
+            html.A('Session loeschen', href=f'{host_ip}:{flask_port}/clear-session', style={
             'backgroundColor': '#dc3545',
             'color': 'white',
             'border': 'none',
