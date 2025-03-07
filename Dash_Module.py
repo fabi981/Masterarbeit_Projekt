@@ -60,7 +60,7 @@ import requests
 
 #################### Globale Datenstrukturen und Variablen, die die Struktur der Dash App bestimmen 
 #IP-Adresse des Servers
-host_ip = "http://0.0.0.0"
+host_ip = "http://188.245.219.175"
 dash_port = "8050"
 flask_port = "5000"
 
