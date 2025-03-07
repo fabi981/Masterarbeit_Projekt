@@ -1658,7 +1658,7 @@ app.clientside_callback(
 #####Startet Dash (im Main-Thread)
 def run_dash():
     print("Dash wird gestartet.")
-    app.run_server(debug=True, host='188.245.219.175', port=8050)
+    app.run_server(debug=True, host='0.0.0.0', port=8050)
     print("Dash wurde gestartet.")
     #socketio_dashclient.connect(f"http://{host_ip}:{flask_port}")
     #print("Dash: Der Socket vom Flask aus wurde gestartet.")
