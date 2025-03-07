@@ -1461,5 +1461,5 @@ if __name__ == '__main__':
     #session_check_thread = threading.Thread(target=periodic_session_check)
     #session_check_thread.daemon = True  # Beendet den Thread, wenn das Hauptprogramm endet
     #session_check_thread.start()
-    flasksocketio_hostsocket.run(flask_app, debug=True, port=5000)
+    flasksocketio_hostsocket.run(flask_app, host='0.0.0.0', debug=True, port=5000)
     #run_flask_socket()
