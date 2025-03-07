@@ -1462,4 +1462,4 @@ if __name__ == '__main__':
     #session_check_thread.daemon = True  # Beendet den Thread, wenn das Hauptprogramm endet
     #session_check_thread.start()
     flasksocketio_hostsocket.run(flask_app, debug=True, port=5000)
-    run_flask_socket()
+    #run_flask_socket()
