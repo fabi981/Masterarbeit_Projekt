@@ -1453,7 +1453,7 @@ def periodic_session_check():
 #####Startet Flask und Flask-SocketIO (dann in einem separaten Thread)
 def run_flask_socket():
     #print("Flask und Socket werden gestartet.")
-    flask_app.run(port=5000, host='188.245.219.175', debug=True, use_reloader=False)
+    flask_app.run(port=5000, host='0.0.0.0', debug=True, use_reloader=False)
     time.sleep(2)
     print("Flask und Socket wurden gestartet.")
     
