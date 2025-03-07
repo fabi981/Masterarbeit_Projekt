@@ -1426,7 +1426,7 @@ def get_session_id_():
         return "Keine session gefunden", 404
 
 def get_session_id():
-    response = requests.get("http://127.0.0.1:5000/get_session_id_")
+    response = requests.get(f"{host_ip}:{flask_port}/get_session_id_")
     return response.text if response.status_code == 200 else None'''
 
 
