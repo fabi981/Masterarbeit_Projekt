@@ -55,6 +55,39 @@ import requests
 #import librosa.display
 #import plotly.graph_objs as go
 
+import logging
+from datetime import datetime
+
+
+####################Logging Methoden
+def create_logger(filename):
+    logger = logging.getLogger(filename)
+    logger.setLevel(logging.INFO)
+    
+    handler = logging.FileHandler(filename, mode='a')
+    formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+    handler.setFormatter(formatter)
+    
+    logger.addHandler(handler)
+    return logger
+
+# Funktion zum Loggen von Interaktionen
+#Element-IDs: JUMP_TO_PAGE, JUMP_TO_CHAPTER, Login-Status, Button_Inpage-Klick, Textfield-Update, Checkbox-Update, 
+#Zeichenfenster-Oeffnung, Zeichenfenster-Ohne-KS-Oeffnung, Audiofenster-Oeffnung, YT-Kommentaranalyse-Fenster-Oeffnung
+#Zeichenfenster-Schliessung, Zeichenfenster-Ohne-KS-Schliessung, Audiofenster-Schliessung, YT-Kommentaranalyse-Fenster-Schliessung
+def log_interaction(user_id = None, element_id = "kein_Element", value = "kein_Wert"):
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    
+    if user_id:
+        filename = f"user_{user_id}.log"
+        logger = create_logger(filename)
+        logger.info(f"{timestamp} - Benutzer: {user_id} - Element:'{element_id}' - Value:  '{value}'")
+        print("log_interaction: Erfolgreich geloggt!!!!!")
+    else:
+        filename = "nicht_eingeloggt.log"
+        logger = create_logger(filename)
+        logger.info(f"{timestamp} - Benutzer: {user_id} - Element:'{element_id}' - Value:  '{value}'")
+        print("log_interaction: Erfolgreich geloggt!!!!!")
 
 
 
@@ -1416,8 +1449,14 @@ def jump_to_page_or_chapter(jump_clicks, chapter_clicks, page_num, chapter_num):
 
     button_id = ctx.triggered[0]['prop_id'].split('.')[0]
     if button_id == 'jump-button' and page_num:
+        #_LOGGING
+        global SESSION_ID_VALUE
+        log_interaction(user_id=SESSION_ID_VALUE, element_id = "JUMP_TO_PAGE", value = f"Nutzer ist zu Seite {page_num}")
         return f'/{max(1, min(MAX_PAGES, page_num))}'
     elif button_id == 'chapter-button' and chapter_num in CHAPTER_MAPPING:
+        #_LOGGING
+        global SESSION_ID_VALUE
+        log_interaction(user_id=SESSION_ID_VALUE, element_id = "JUMP_TO_CHAPTER", value = f"Nutzer ist zu Kapitel {chapter_num}")
         return f'/{CHAPTER_MAPPING[chapter_num]}'
     return no_update
 
@@ -1429,6 +1468,7 @@ def jump_to_page_or_chapter(jump_clicks, chapter_clicks, page_num, chapter_num):
 def update_login_status(n):
     global SESSION_ID_VALUE
     if SESSION_ID_VALUE != None:
+        log_interaction(user_id=SESSION_ID_VALUE, element_id = "Login-Status", value = "Nutzer hat sich eingeloggt.")
         return f"Eingeloggt mit Kennung: {SESSION_ID_VALUE}"
     else:
         return "Nicht eingeloggt!"
@@ -1459,6 +1499,9 @@ def button_callback(n_clicks):
     for page, buttons in BUTTONS.items():
         for button in buttons:
             if button["id"] == button_id['index']:
+                #_LOGGING
+                global SESSION_ID_VALUE
+                log_interaction(user_id=SESSION_ID_VALUE, element_id = "Button-Inpage-Klick", value = f"Button mit ID {button["id"]} auf Seite {page} wurde geklickt.")
                 method = button["method"]
                 if callable(method):
                     print(f"Starte Methode {method.__name__}...")
@@ -1538,6 +1581,12 @@ def handle_textfield_change(data):
     for page_str in data:
         print("handle_textfield_change: page_str: ", page_str)
         for text_field_id in data[page_str]:
+            #_LOGGING
+            global SESSION_ID_VALUE
+            old_value = TEXT_FIELD_VALUES[int(page_str)][text_field_id]
+            new_value = data[page_str][text_field_id]
+            if old_value != new_value:
+                log_interaction(user_id=SESSION_ID_VALUE, element_id = "Textfield-Update", value = f"Textfeld auf Seite {page_str} mit Textfield-ID {text_field_id}. Alter Wert: {old_value}. Neuer Wert: {new_value}")
             TEXT_FIELD_VALUES[int(page_str)][text_field_id] = data[page_str][text_field_id]
     print("handle_textfield_change: TEXT_FIELD_VALUES: ", TEXT_FIELD_VALUES)
         
@@ -1550,6 +1599,12 @@ def handle_checkboxes_change(data):
     for page_str in data:
         print("handle_checkbox_change: page_str: ", page_str)
         for checkbox_id in data[page_str]:
+            #_LOGGING
+            global SESSION_ID_VALUE
+            old_value = CHECK_BOX_VALUES[int(page_str)][checkbox_id]
+            new_value = data[page_str][checkbox_id]
+            if old_value != new_value:
+                log_interaction(user_id=SESSION_ID_VALUE, element_id = "Checkbox-Update", value = f"Checkbox auf Seite {page_str} mit Checkbox-ID {checkbox_id}. Alter Wert: {old_value}. Neuer Wert: {new_value}")
             CHECK_BOX_VALUES[int(page_str)][checkbox_id] = data[page_str][checkbox_id]
     print("handle_checkboxes_change: CHECK_BOXES_VALUES: ", CHECK_BOX_VALUES)
 
@@ -1571,6 +1626,14 @@ def handle_session_id_change(data):
 )
 def toggle_zeichenfenster_modal(n1, n2, is_open):
     if n1 or n2:
+        if n1:
+            #_LOGGING
+            global SESSION_ID_VALUE
+            log_interaction(user_id=SESSION_ID_VALUE, element_id = "Zeichenfenster-Oeffnung", value = "Zeichenfenster wurde geoeffnet.")
+        if n2:
+            #_LOGGING
+            global SESSION_ID_VALUE
+            log_interaction(user_id=SESSION_ID_VALUE, element_id = "Zeichenfenster-Schliessung", value = "Zeichenfenster wurde geschlossen.")
         return not is_open
     return is_open
 
@@ -1581,6 +1644,14 @@ def toggle_zeichenfenster_modal(n1, n2, is_open):
 )
 def toggle_zeichenfenster_modal_ohne_ks(n1, n2, is_open):
     if n1 or n2:
+        if n1:
+            #_LOGGING
+            global SESSION_ID_VALUE
+            log_interaction(user_id=SESSION_ID_VALUE, element_id = "Zeichenfenster-ohne-KS-Oeffnung", value = "Zeichenfenster ohne Koordinatensystem wurde geoeffnet.")
+        if n2:
+            #_LOGGING
+            global SESSION_ID_VALUE
+            log_interaction(user_id=SESSION_ID_VALUE, element_id = "Zeichenfenster-ohne-KS-Schliessung", value = "Zeichenfenster ohne Koordinatensystem wurde geschlossen.")
         return not is_open
     return is_open
 
@@ -1591,6 +1662,14 @@ def toggle_zeichenfenster_modal_ohne_ks(n1, n2, is_open):
 )
 def toggle_audioaufnahme(n1, n2, is_open):
     if n1 or n2:
+        if n1:
+            #_LOGGING
+            global SESSION_ID_VALUE
+            log_interaction(user_id=SESSION_ID_VALUE, element_id = "Audiofenster-Oeffnung", value = "Audiofenster wurde geoeffnet.")
+        if n2:
+            #_LOGGING
+            global SESSION_ID_VALUE
+            log_interaction(user_id=SESSION_ID_VALUE, element_id = "Audiofenster-Schliessung", value = "Audiofenster wurde geschlossen.")
         return not is_open
     return is_open
 
@@ -1602,6 +1681,14 @@ def toggle_audioaufnahme(n1, n2, is_open):
 )
 def toggle_yt_kommentaranalse(n1, n2, is_open):
     if n1 or n2:
+        if n1:
+            #_LOGGING
+            global SESSION_ID_VALUE
+            log_interaction(user_id=SESSION_ID_VALUE, element_id = "YT-Kommentaranalyse-Fenster-Oeffnung", value = "YT-Kommentaranalyse-Fenster wurde geoeffnet.")
+        if n2:
+            #_LOGGING
+            global SESSION_ID_VALUE
+            log_interaction(user_id=SESSION_ID_VALUE, element_id = "YT-Kommentaranalyse-Fenster-Schliessung", value = "YT-Kommentaranalyse-Fenster wurde geschlossen.")
         return not is_open
     return is_open
 
@@ -1613,6 +1700,14 @@ def toggle_yt_kommentaranalse(n1, n2, is_open):
 )
 def toggle_kameraanalyse(n1, n2, is_open):
     if n1 or n2:
+        if n1:
+            #_LOGGING
+            global SESSION_ID_VALUE
+            log_interaction(user_id=SESSION_ID_VALUE, element_id = "Kameraanalyse-Fenster-Oeffnung", value = "Kameraanalyse-Fenster wurde geoeffnet.")
+        if n2:
+            #_LOGGING
+            global SESSION_ID_VALUE
+            log_interaction(user_id=SESSION_ID_VALUE, element_id = "Kameraanalyse-Fenster-Schliessung", value = "Kameraanalyse-Fenster wurde geschlossen.")
         return not is_open
     return is_open
 
