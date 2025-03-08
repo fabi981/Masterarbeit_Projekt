@@ -1448,14 +1448,13 @@ def jump_to_page_or_chapter(jump_clicks, chapter_clicks, page_num, chapter_num):
         return no_update
 
     button_id = ctx.triggered[0]['prop_id'].split('.')[0]
+    global SESSION_ID_VALUE #_LOGGING
     if button_id == 'jump-button' and page_num:
         #_LOGGING
-        global SESSION_ID_VALUE
         log_interaction(user_id=SESSION_ID_VALUE, element_id = "JUMP_TO_PAGE", value = f"Nutzer ist zu Seite {page_num}")
         return f'/{max(1, min(MAX_PAGES, page_num))}'
     elif button_id == 'chapter-button' and chapter_num in CHAPTER_MAPPING:
         #_LOGGING
-        global SESSION_ID_VALUE
         log_interaction(user_id=SESSION_ID_VALUE, element_id = "JUMP_TO_CHAPTER", value = f"Nutzer ist zu Kapitel {chapter_num}")
         return f'/{CHAPTER_MAPPING[chapter_num]}'
     return no_update
