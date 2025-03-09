@@ -1626,13 +1626,12 @@ def handle_session_id_change(data):
 )
 def toggle_zeichenfenster_modal(n1, n2, is_open):
     if n1 or n2:
+        global SESSION_ID_VALUE #_LOGGING
         if n1:
             #_LOGGING
-            global SESSION_ID_VALUE
             log_interaction(user_id=SESSION_ID_VALUE, element_id = "Zeichenfenster-Oeffnung", value = "Zeichenfenster wurde geoeffnet.")
         if n2:
             #_LOGGING
-            global SESSION_ID_VALUE
             log_interaction(user_id=SESSION_ID_VALUE, element_id = "Zeichenfenster-Schliessung", value = "Zeichenfenster wurde geschlossen.")
         return not is_open
     return is_open
