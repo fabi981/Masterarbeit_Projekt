@@ -1500,7 +1500,8 @@ def button_callback(n_clicks):
             if button["id"] == button_id['index']:
                 #_LOGGING
                 global SESSION_ID_VALUE
-                log_interaction(user_id=SESSION_ID_VALUE, element_id = "Button-Inpage-Klick", value = f"Button mit ID {button["id"]} auf Seite {page} wurde geklickt.")
+                button_id_extrahiert = button["id"]
+                log_interaction(user_id=SESSION_ID_VALUE, element_id = "Button-Inpage-Klick", value = f"Button mit ID {button_id_extrahiert} auf Seite {page} wurde geklickt.")
                 method = button["method"]
                 if callable(method):
                     print(f"Starte Methode {method.__name__}...")
