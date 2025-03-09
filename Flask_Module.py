@@ -417,7 +417,7 @@ flask_app = Flask(__name__)
 flask_app.secret_key = 'supersecretkey'
 flask_app.config['SESSION_TYPE'] = 'redis'  # Konfiguriere die Session, um Redis zu verwenden
 flask_app.config['SESSION_PERMANENT'] = True  # Optional: Session nicht permanent machen
-flask_app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(hours=480)
+flask_app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(hours=4800)
 flask_app.config['SESSION_USE_SIGNER'] = True  # Optional: Session-Cookie signieren
 redis_client = flask_app.config['SESSION_REDIS'] = redis.StrictRedis(host='188.245.219.175', port=6379, db=0, password="996340Fabi#PbUni")  # Konfiguriere Redis
 #Redis Client
@@ -1126,8 +1126,8 @@ def redis_save_text_field(value, text_field_id, page_number=None, session_id=Non
     try:
         # Speichere den Wert in Redis
         redis_client.hset(redis_key, str(text_field_id), str(value))
-        # Setze eine Ablaufzeit von 480 Stunden
-        redis_client.expire(redis_key, timedelta(hours=480))
+        # Setze eine Ablaufzeit von 4800 Stunden
+        redis_client.expire(redis_key, timedelta(hours=4800))
         #print(f"redis_save_text_field: Erfolg: Wert - {value} - korrekt gespeichert unter {redis_key}")
         return
     except Exception as e:
@@ -1198,8 +1198,8 @@ def redis_save_checkbox(value, check_box_id, page_number=None, session_id=None):
     try:
         # Speichere den Wert in Redis (als String, um boolesche Werte zu erhalten)
         redis_client.hset(redis_key, str(check_box_id), str(value))
-        # Setze eine Ablaufzeit von 24 Stunden
-        redis_client.expire(redis_key, timedelta(hours=480))
+        # Setze eine Ablaufzeit von 4800 Stunden
+        redis_client.expire(redis_key, timedelta(hours=4800))
         #print(f"redis_save_checkbox: Erfolg: Wert - {value} - korrekt gespeichert unter {redis_key}")
         return
     except Exception as e:
