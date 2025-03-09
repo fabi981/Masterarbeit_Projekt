@@ -1643,13 +1643,12 @@ def toggle_zeichenfenster_modal(n1, n2, is_open):
 )
 def toggle_zeichenfenster_modal_ohne_ks(n1, n2, is_open):
     if n1 or n2:
+        global SESSION_ID_VALUE
         if n1:
             #_LOGGING
-            global SESSION_ID_VALUE
             log_interaction(user_id=SESSION_ID_VALUE, element_id = "Zeichenfenster-ohne-KS-Oeffnung", value = "Zeichenfenster ohne Koordinatensystem wurde geoeffnet.")
         if n2:
             #_LOGGING
-            global SESSION_ID_VALUE
             log_interaction(user_id=SESSION_ID_VALUE, element_id = "Zeichenfenster-ohne-KS-Schliessung", value = "Zeichenfenster ohne Koordinatensystem wurde geschlossen.")
         return not is_open
     return is_open
