@@ -20,7 +20,7 @@ import requests
 import logging#_Verbesserung
 from datetime import datetime #_Verbesserung
 
-#from transformers import pipeline
+from transformers import pipeline
 
 
 ##########Rausgeschmissene Bibliotheken - erstmal nicht benutzt
@@ -106,7 +106,6 @@ flask_port = "5000"
 def platzhaltermethode():
     print("Hallo Moto")
 
-
 # Springt via Flask_Redirecting zur richtigen Dash-Seite. D.h. geht z.B. zu :5000/recirect_dash/50 und von da aus zu :8050/50
 def jump_to_dash_page(page_number):
     try:
@@ -170,6 +169,8 @@ PAGE2_NAVIGATION_BUTTONS = {
     7: 30.0,
     8: 32.8
 }
+
+
 
 # Textfeld-Mapping: Textfelder mit IDs; Seitenzahl -> Textfeld-ID -> Koordinaten/Breiten/Hoehen 
 # (X/Y/B/H sind prozental im Div festgelegt)
@@ -349,107 +350,6 @@ TEXT_FIELDS = {
     ],
 }
 
-# Checkboxes-Mapping: Checkboxen mit IDs; Seitenzahl -> Checkbox-ID -> Koordinaten/Skalierung/anfaenglicher Checked-Zustand 
-# (X/Y/S sind prozental im Div festgelegt)
-CHECK_BOXES = {
-    13: [
-        {"id": "checkbox-13-1", "x": 10, "y": 80.5, "scale": 2.5, "checked": False, "changable": True},
-        {"id": "checkbox-13-2", "x": 10, "y": 83.2, "scale": 2.5, "checked": False, "changable": True},
-        {"id": "checkbox-13-3", "x": 10, "y": 86, "scale": 2.5, "checked": False, "changable": True},
-        {"id": "checkbox-13-4", "x": 10, "y": 88.8, "scale": 2.5, "checked": False, "changable": True},
-    ],
-    42: [
-        {"id": "checkbox-42-1", "x": 50, "y": 23.5, "scale": 2.5, "checked": False, "changable": True},
-        {"id": "checkbox-42-2", "x": 50, "y": 26.2, "scale": 2.5, "checked": False, "changable": True},
-        {"id": "checkbox-42-3", "x": 50, "y": 29, "scale": 2.5, "checked": False, "changable": True},
-        {"id": "checkbox-42-4", "x": 50, "y": 31.8, "scale": 2.5, "checked": False, "changable": True},
-    ],
-    #43: [
-    #    {"id": "checkbox-43-1", "x": 60, "y": 37, "scale": 2.5, "checked": False, "changable": True},
-    #    {"id": "checkbox-43-2", "x": 60, "y": 39.8, "scale": 2.5, "checked": False, "changable": True},
-    #    {"id": "checkbox-43-3", "x": 60, "y": 42.7, "scale": 2.5, "checked": False, "changable": True},
-    #], #Aufgabe wurde entfernt
-    44: [
-        {"id": "checkbox-44-1", "x": 50, "y": 20.8, "scale": 2.5, "checked": False, "changable": False},
-        {"id": "checkbox-44-2", "x": 50, "y": 23.5, "scale": 2.5, "checked": False, "changable": False},
-        {"id": "checkbox-44-3", "x": 50, "y": 26.3, "scale": 2.5, "checked": True, "changable": False},
-        {"id": "checkbox-44-4", "x": 50, "y": 29.1, "scale": 2.5, "checked": True, "changable": False},
-    ],
-    83: [
-        {"id": "checkbox-83-1", "x": 34, "y": 18, "scale": 2.5, "checked": False, "changable": True},
-        {"id": "checkbox-83-2", "x": 15, "y": 23.5, "scale": 2.5, "checked": False, "changable": True},
-        {"id": "checkbox-83-3", "x": 50, "y": 29, "scale": 2.5, "checked": False, "changable": True},
-
-        {"id": "checkbox-83-4", "x": 50, "y": 37, "scale": 2.5, "checked": False, "changable": True},
-        {"id": "checkbox-83-5", "x": 50, "y": 40, "scale": 2.5, "checked": False, "changable": True},
-        {"id": "checkbox-83-6", "x": 50, "y": 43, "scale": 2.5, "checked": False, "changable": True},
-    ],
-    94: [
-        {"id": "checkbox-94-1", "x": 86, "y": 53.5, "scale": 2.5, "checked": False, "changable": True},
-        {"id": "checkbox-94-2", "x": 50, "y": 59, "scale": 2.5, "checked": False, "changable": True},
-        {"id": "checkbox-94-3", "x": 86, "y": 61.7, "scale": 2.5, "checked": False, "changable": True},
-        {"id": "checkbox-94-4", "x": 42, "y": 64.2, "scale": 2.5, "checked": False, "changable": True},
-
-        {"id": "checkbox-94-5", "x": 50, "y": 83.2, "scale": 2.5, "checked": False, "changable": True},
-        {"id": "checkbox-94-6", "x": 50, "y": 86, "scale": 2.5, "checked": False, "changable": True},
-        {"id": "checkbox-94-7", "x": 50, "y": 88.7, "scale": 2.5, "checked": False, "changable": True},
-    ],
-    96: [
-        {"id": "checkbox-96-1", "x": 70, "y": 23.3, "scale": 2.5, "checked": False, "changable": True},
-        {"id": "checkbox-96-2", "x": 70, "y": 26.5, "scale": 2.5, "checked": False, "changable": True},
-        {"id": "checkbox-96-3", "x": 70, "y": 28.7, "scale": 2.5, "checked": False, "changable": True},
-        {"id": "checkbox-96-4", "x": 70, "y": 31.7, "scale": 2.5, "checked": False, "changable": True},
-
-        {"id": "checkbox-96-5", "x": 75, "y": 45.3, "scale": 2.5, "checked": False, "changable": True},
-        {"id": "checkbox-96-6", "x": 87, "y": 48, "scale": 2.5, "checked": False, "changable": True},
-        {"id": "checkbox-96-7", "x": 13, "y": 53.3, "scale": 2.5, "checked": False, "changable": True},
-        {"id": "checkbox-96-8", "x": 33, "y": 58.8, "scale": 2.5, "checked": False, "changable": True},
-    ],
-    100: [
-        {"id": "checkbox-100-1", "x": 25, "y": 23, "scale": 2.5, "checked": False, "changable": True},
-        {"id": "checkbox-100-2", "x": 37.5, "y": 23, "scale": 2.5, "checked": False, "changable": True},
-        {"id": "checkbox-100-3", "x": 50, "y": 23, "scale": 2.5, "checked": False, "changable": True},
-        {"id": "checkbox-100-4", "x": 62.5, "y": 23, "scale": 2.5, "checked": False, "changable": True},
-        {"id": "checkbox-100-5", "x": 75, "y": 23, "scale": 2.5, "checked": False, "changable": True},
-    ],
-}
-
-# Buttons-Mapping: Buttons mit IDs; Seitenzahl -> Button-ID -> Koordinaten/Skalierung/Label(Text des Buttons)/Color(erfuellt i.M. keinen Zweck)/
-# Background_Color(Hintergrundfarbe des Button)/Methode(Bei Button-Klick wird diese aktiviert)
-# (X/Y sind prozental im Div festgelegt)
-BUTTONS = {
-    16: [
-        #{"id": "button-16-1", "x": 9.5, "y": 19, "label": "Klick mich", "color": "primary", "background_color" : "grey" , "method": platzhaltermethode},
-    ],
-
-    18: [
-        #{"id": "button-18-1", "x": 50, "y": 12.5, "label": "Audio Aufnehmen", "color": "success", "background_color" : "grey" , "method": platzhaltermethode},
-        #{"id": "button-18-2", "x": 50, "y": 18.5, "label": "Audio Beenden", "color": "success", "background_color" : "grey" , "method": platzhaltermethode},
-    ],
-    20: [
-        #
-        #{"id": "button-20-1", "x": 7, "y": 15, "label": "OK", "color": "success", "background_color" : "grey" , "method": platzhaltermethode},
-    ],
-    21: [ #Zweckloesung: hier mussten ganz viele Unicode Leerzeichen eingefuegt werden, damit der Button laenger gestreckt ist und sich ueber die gesamte URL erstreckt
-        {"id": "button-21-1", "x": 20.1, "y": 13.1, "label": "\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003", "color": "blue", "background_color" : "rgba(128,128,128,0.5)" , "method": platzhaltermethode},
-    ],
-    33: [
-        #{"id": "button-33-1", "x": 12.5, "y": 18.5, "label": "Zeichenfenster oeffnen", "color": "blue", "background_color" : "grey" , "method": platzhaltermethode},
-    ],
-    42: [
-        #{"id": "button-42-1", "x": 12.5, "y": 43.5, "label": "Zeichenfenster oeffnen", "color": "blue", "background_color" : "grey" , "method": platzhaltermethode},
-    ],
-    43: [
-        #{"id": "button-43-1", "x": 10, "y": 83.5, "label": "Fenster oeffnen", "color": "blue", "background_color" : "grey" , "method": platzhaltermethode},
-    ],
-    69: [
-        #{"id": "button-69-1", "x": 12.5, "y": 83.5, "label": "Zeichenfenster oeffnen", "color": "blue", "background_color" : "grey" , "method": platzhaltermethode},
-    ],
-    94: [
-        {"id": "button-94-1", "x": 10, "y": 34.5, "label": "Analysieren", "color": "blue", "background_color" : "grey" , "method": platzhaltermethode},
-    ],
-}
-
 TEXT_FIELD_VALUES = {
     5: {
         "text-5-1": None, "text-5-2": None, "text-5-3": None,
@@ -555,6 +455,118 @@ TEXT_FIELD_VALUES = {
     },
 }
 
+
+##### Erraedt maskierten Token eines Satzes der Form Ich trinke gerne [Mask].
+class MaskUnmasker:
+    @staticmethod
+    def unmask_sentence(page_eingabe=None, textfield_id_eingabe=None, page_ausgabe=None, textfield_id_ausgabe=None, text=None,  model_name="bert-base-cased"):
+        """
+        Ersetzt das [MASK]-Token im gegebenen Text durch das wahrscheinlichste Wort.
+
+        Args:
+            text (str): Der Text mit einem [MASK]-Token 
+            oder alternativ: page_eingabe (int), textfield_id_eingabe (str) und page_ausgabe (int), textfield_id_ausgabe (str): Nimmt den Textfeld inhalt vom Eingabetextfield und packt es in das Ausgabetextfield
+            model_name (str): Der Name des vortrainierten Modells (Standard: 'bert-base-cased').
+
+        Returns:
+            str: Der Text mit dem ersetzten [MASK]-Token.
+        """
+        try:
+            # Initialisiere die fill-mask-Pipeline
+            fill_mask = pipeline("fill-mask", model=model_name)
+            
+            # Fuehre die Vorhersage durch
+            if text == None:
+                text = TEXT_FIELD_VALUES[page_eingabe][textfield_id_eingabe]
+                
+            predictions = fill_mask(text)
+            # Extrahiere die beste Vorhersage
+            best_prediction = predictions[0]['sequence']  # Beste Vorhersage ausgeben
+
+            if textfield_id_ausgabe != None:
+                TEXT_FIELD_VALUES[page_ausgabe][textfield_id_ausgabe] = best_prediction
+            
+            return best_prediction
+                
+        except KeyError as e:
+            print(f"MaskUnmasker - unmask_sentence: Zugriff auf TEXT_FIELD_VALUES fehlgeschlagen - {e}")    
+        
+        except Exception as e:
+            print(f"MaskUnmasker - unmask_sentence: Allgemeiner Fehler beim Unmasking: {e}")
+            return None
+
+def unmask_page_93():
+    pass
+
+def unmask_page_94():
+    pass
+
+
+# Checkboxes-Mapping: Checkboxen mit IDs; Seitenzahl -> Checkbox-ID -> Koordinaten/Skalierung/anfaenglicher Checked-Zustand 
+# (X/Y/S sind prozental im Div festgelegt)
+CHECK_BOXES = {
+    13: [
+        {"id": "checkbox-13-1", "x": 10, "y": 80.5, "scale": 2.5, "checked": False, "changable": True},
+        {"id": "checkbox-13-2", "x": 10, "y": 83.2, "scale": 2.5, "checked": False, "changable": True},
+        {"id": "checkbox-13-3", "x": 10, "y": 86, "scale": 2.5, "checked": False, "changable": True},
+        {"id": "checkbox-13-4", "x": 10, "y": 88.8, "scale": 2.5, "checked": False, "changable": True},
+    ],
+    42: [
+        {"id": "checkbox-42-1", "x": 50, "y": 23.5, "scale": 2.5, "checked": False, "changable": True},
+        {"id": "checkbox-42-2", "x": 50, "y": 26.2, "scale": 2.5, "checked": False, "changable": True},
+        {"id": "checkbox-42-3", "x": 50, "y": 29, "scale": 2.5, "checked": False, "changable": True},
+        {"id": "checkbox-42-4", "x": 50, "y": 31.8, "scale": 2.5, "checked": False, "changable": True},
+    ],
+    #43: [
+    #    {"id": "checkbox-43-1", "x": 60, "y": 37, "scale": 2.5, "checked": False, "changable": True},
+    #    {"id": "checkbox-43-2", "x": 60, "y": 39.8, "scale": 2.5, "checked": False, "changable": True},
+    #    {"id": "checkbox-43-3", "x": 60, "y": 42.7, "scale": 2.5, "checked": False, "changable": True},
+    #], #Aufgabe wurde entfernt
+    44: [
+        {"id": "checkbox-44-1", "x": 50, "y": 20.8, "scale": 2.5, "checked": False, "changable": False},
+        {"id": "checkbox-44-2", "x": 50, "y": 23.5, "scale": 2.5, "checked": False, "changable": False},
+        {"id": "checkbox-44-3", "x": 50, "y": 26.3, "scale": 2.5, "checked": True, "changable": False},
+        {"id": "checkbox-44-4", "x": 50, "y": 29.1, "scale": 2.5, "checked": True, "changable": False},
+    ],
+    83: [
+        {"id": "checkbox-83-1", "x": 34, "y": 18, "scale": 2.5, "checked": False, "changable": True},
+        {"id": "checkbox-83-2", "x": 15, "y": 23.5, "scale": 2.5, "checked": False, "changable": True},
+        {"id": "checkbox-83-3", "x": 50, "y": 29, "scale": 2.5, "checked": False, "changable": True},
+
+        {"id": "checkbox-83-4", "x": 50, "y": 37, "scale": 2.5, "checked": False, "changable": True},
+        {"id": "checkbox-83-5", "x": 50, "y": 40, "scale": 2.5, "checked": False, "changable": True},
+        {"id": "checkbox-83-6", "x": 50, "y": 43, "scale": 2.5, "checked": False, "changable": True},
+    ],
+    94: [
+        {"id": "checkbox-94-1", "x": 86, "y": 53.5, "scale": 2.5, "checked": False, "changable": True},
+        {"id": "checkbox-94-2", "x": 50, "y": 59, "scale": 2.5, "checked": False, "changable": True},
+        {"id": "checkbox-94-3", "x": 86, "y": 61.7, "scale": 2.5, "checked": False, "changable": True},
+        {"id": "checkbox-94-4", "x": 42, "y": 64.2, "scale": 2.5, "checked": False, "changable": True},
+
+        {"id": "checkbox-94-5", "x": 50, "y": 83.2, "scale": 2.5, "checked": False, "changable": True},
+        {"id": "checkbox-94-6", "x": 50, "y": 86, "scale": 2.5, "checked": False, "changable": True},
+        {"id": "checkbox-94-7", "x": 50, "y": 88.7, "scale": 2.5, "checked": False, "changable": True},
+    ],
+    96: [
+        {"id": "checkbox-96-1", "x": 70, "y": 23.3, "scale": 2.5, "checked": False, "changable": True},
+        {"id": "checkbox-96-2", "x": 70, "y": 26.5, "scale": 2.5, "checked": False, "changable": True},
+        {"id": "checkbox-96-3", "x": 70, "y": 28.7, "scale": 2.5, "checked": False, "changable": True},
+        {"id": "checkbox-96-4", "x": 70, "y": 31.7, "scale": 2.5, "checked": False, "changable": True},
+
+        {"id": "checkbox-96-5", "x": 75, "y": 45.3, "scale": 2.5, "checked": False, "changable": True},
+        {"id": "checkbox-96-6", "x": 87, "y": 48, "scale": 2.5, "checked": False, "changable": True},
+        {"id": "checkbox-96-7", "x": 13, "y": 53.3, "scale": 2.5, "checked": False, "changable": True},
+        {"id": "checkbox-96-8", "x": 33, "y": 58.8, "scale": 2.5, "checked": False, "changable": True},
+    ],
+    100: [
+        {"id": "checkbox-100-1", "x": 25, "y": 23, "scale": 2.5, "checked": False, "changable": True},
+        {"id": "checkbox-100-2", "x": 37.5, "y": 23, "scale": 2.5, "checked": False, "changable": True},
+        {"id": "checkbox-100-3", "x": 50, "y": 23, "scale": 2.5, "checked": False, "changable": True},
+        {"id": "checkbox-100-4", "x": 62.5, "y": 23, "scale": 2.5, "checked": False, "changable": True},
+        {"id": "checkbox-100-5", "x": 75, "y": 23, "scale": 2.5, "checked": False, "changable": True},
+    ],
+}
+
 CHECK_BOX_VALUES = {
     13: {
         "checkbox-13-1": False,
@@ -610,7 +622,47 @@ CHECK_BOX_VALUES = {
     }
 }
 
+
+
+# Buttons-Mapping: Buttons mit IDs; Seitenzahl -> Button-ID -> Koordinaten/Skalierung/Label(Text des Buttons)/Color(erfuellt i.M. keinen Zweck)/
+# Background_Color(Hintergrundfarbe des Button)/Methode(Bei Button-Klick wird diese aktiviert)
+# (X/Y sind prozental im Div festgelegt)
+BUTTONS = {
+    16: [
+        #{"id": "button-16-1", "x": 9.5, "y": 19, "label": "Klick mich", "color": "primary", "background_color" : "grey" , "method": platzhaltermethode},
+    ],
+
+    18: [
+        #{"id": "button-18-1", "x": 50, "y": 12.5, "label": "Audio Aufnehmen", "color": "success", "background_color" : "grey" , "method": platzhaltermethode},
+        #{"id": "button-18-2", "x": 50, "y": 18.5, "label": "Audio Beenden", "color": "success", "background_color" : "grey" , "method": platzhaltermethode},
+    ],
+    20: [
+        #
+        #{"id": "button-20-1", "x": 7, "y": 15, "label": "OK", "color": "success", "background_color" : "grey" , "method": platzhaltermethode},
+    ],
+    21: [ #Zweckloesung: hier mussten ganz viele Unicode Leerzeichen eingefuegt werden, damit der Button laenger gestreckt ist und sich ueber die gesamte URL erstreckt
+        {"id": "button-21-1", "x": 20.1, "y": 13.1, "label": "\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003", "color": "blue", "background_color" : "rgba(128,128,128,0.5)" , "method": platzhaltermethode},
+    ],
+    33: [
+        #{"id": "button-33-1", "x": 12.5, "y": 18.5, "label": "Zeichenfenster oeffnen", "color": "blue", "background_color" : "grey" , "method": platzhaltermethode},
+    ],
+    42: [
+        #{"id": "button-42-1", "x": 12.5, "y": 43.5, "label": "Zeichenfenster oeffnen", "color": "blue", "background_color" : "grey" , "method": platzhaltermethode},
+    ],
+    43: [
+        #{"id": "button-43-1", "x": 10, "y": 83.5, "label": "Fenster oeffnen", "color": "blue", "background_color" : "grey" , "method": platzhaltermethode},
+    ],
+    69: [
+        #{"id": "button-69-1", "x": 12.5, "y": 83.5, "label": "Zeichenfenster oeffnen", "color": "blue", "background_color" : "grey" , "method": platzhaltermethode},
+    ],
+    94: [
+        {"id": "button-94-1", "x": 10, "y": 34.5, "label": "Analysieren", "color": "blue", "background_color" : "grey" , "method": platzhaltermethode},
+    ],
+}
+
+
 SESSION_ID_VALUE = None
+
 
 ####################Canvas Zeichenfeld fuer Seite 10 (wird in der create_page Methode ebenfalls ueber die Collapse-Liste appendet)
 transparent_image_base64 = "data:image/png;base64,"
