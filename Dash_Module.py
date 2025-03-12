@@ -499,7 +499,7 @@ def unmask_page_93():
     pass
 
 def unmask_page_94():
-    pass
+    MaskUnmasker.unmask_sentence(page_eingabe=94, page_ausgabe=94, textfield_id_eingabe="text-94-1", textfield_id_ausgabe="text-94-2")
 
 
 # Checkboxes-Mapping: Checkboxen mit IDs; Seitenzahl -> Checkbox-ID -> Koordinaten/Skalierung/anfaenglicher Checked-Zustand 
