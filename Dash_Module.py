@@ -797,7 +797,7 @@ modal_zeichenfenster_ohne_ks = dbc.Modal(
         dbc.ModalHeader("Zeichenfenster"),
         dbc.ModalBody(
             html.Iframe(
-                src= f"{host_ip}:{flask_port}/zeichenfenster", #HIER IP UEBERARBEITET""http://127.0.0.1:5000/zeichenfenster_ohne_ks",
+                src= f"{host_ip}:{flask_port}/zeichenfenster_ohne_ks", #HIER IP UEBERARBEITET""http://127.0.0.1:5000/zeichenfenster_ohne_ks",
                 style={"width": "100%", "height": "600px", "border": "none"}
             )
         ),
