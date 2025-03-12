@@ -526,7 +526,7 @@ TEXT_FIELD_VALUES = {
         "text-49-1": None, "text-49-2": None
     },
     50: {
-        "text-50-3": None, "text-50-4": None
+        "text-50-1": None, "text-50-2": None
     },
     51: {
         "text-51-1": None
