@@ -1573,7 +1573,41 @@ def create_page(page_num):
                     }
                 )
             )
-
+    #Custom Textfelder: Die Textfelder von Seite 49 und 51 nochmal auf Seite 52 bis 57 einblenden
+    if page_num == 52:
+        field = TEXT_FIELDS[49][0] #Achtung Gefahr: Falls vor Textfeld 49-1 ein anderes eingefuegt wird, geht der Code nicht mehr
+        text_fields.append(
+                html.Div(
+                    dcc.Textarea(
+                        id={'type': 'text-field', 'index': field["id"]},
+                        value=TEXT_FIELD_VALUES[49]["text-49-1"] if TEXT_FIELD_VALUES[49]["text-49-1"] != None else "",  
+                        placeholder="",
+                        style={
+                            'width': f"{field['width']}%",  
+                            'height': f"{field['height']}%",  
+                            'padding': '10px',
+                            'fontSize': '16px',
+                            'border': '1px solid #ccc',
+                            'borderRadius': '5px',
+                            'backgroundColor': 'rgba(255, 255, 255, 0.8)',
+                            'resize': 'none',  
+                            #'pointerEvents': 'auto', 
+                            'pointerEvents': 'none'
+                            'opacity': '0.7' #
+                            
+                        }
+                    ),
+                    style={
+                        "position": "absolute",
+                        "top": f"{field['y']}%",  
+                        "left": f"{field['x']}%",  
+                        "width": f"{field['width']}%",  
+                        "height": f"{field['height']}%",  
+                        "transform": "translate(-50%, -50%)", 
+                    }
+                )
+            )
+    
     # Automatisch alle Checkboxen generieren, die in CHECK_BOXES definiert sind
     check_boxes = []
     if page_num in CHECK_BOXES:
@@ -1602,7 +1636,8 @@ def create_page(page_num):
                     }
                 )
             )
-
+    
+    
     buttons = []
     if page_num in BUTTONS:
         for button in BUTTONS[page_num]:
