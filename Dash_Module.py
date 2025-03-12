@@ -178,6 +178,8 @@ TEXT_FIELDS = {
         {"id": "text-5-5", "value": None, "x": 60, "y": 62.3, "width": 35, "height": 18.0, "changable": True},
         {"id": "text-5-6", "value": None, "x": 62, "y": 82.4, "width": 35, "height": 18.0, "changable": True},
         {"id": "text-5-7", "value": None, "x": 70, "y": 59.2, "width": 35, "height": 18.0, "changable": True},
+
+        {"id": "text-5-8", "value": None, "x": 52, "y": 100, "width": 95, "height": 38.0, "changable": True},#_VERBESSERUNG
     ],
     6: [
         {"id": "text-6-1", "value": None, "x": 58, "y": 72.3, "width": 50, "height": 18.0, "changable": True},
@@ -193,6 +195,14 @@ TEXT_FIELDS = {
     ],
     8: [
         {"id": "text-8-1", "value": None, "x": 37, "y": 91, "width": 65, "height": 58.0, "changable": True},
+    ],
+    10: [#_Verbesserung
+        {"id": "text-10-1", "value": None, "x": 47, "y": 52, "width": 40, "height": 15.0, "changable": True},
+        {"id": "text-10-2", "value": None, "x": 41, "y": 55, "width": 40, "height": 15.0, "changable": True},
+        {"id": "text-10-3", "value": None, "x": 44, "y": 58, "width": 40, "height": 15.0, "changable": True},
+        {"id": "text-10-4", "value": None, "x": 67, "y": 60, "width": 40, "height": 15.0, "changable": True},
+        {"id": "text-10-5", "value": None, "x": 54, "y": 63, "width": 40, "height": 15.0, "changable": True},
+        {"id": "text-10-6", "value": None, "x": 47, "y": 66, "width": 40, "height": 15.0, "changable": True},
     ],
     16: [
         {"id": "text-16-1", "value": None, "x": 51, "y": 58, "width": 93, "height": 27.0, "changable": True},
@@ -440,7 +450,7 @@ TEXT_FIELD_VALUES = {
     5: {
         "text-5-1": None, "text-5-2": None, "text-5-3": None,
         "text-5-4": None, "text-5-5": None, "text-5-6": None,
-        "text-5-7": None
+        "text-5-7": None, "text-5-8": None 
     },
     6: {
         "text-6-1": None, "text-6-2": None, "text-6-3": None,
@@ -449,6 +459,10 @@ TEXT_FIELD_VALUES = {
     },
     8: {
         "text-8-1": None
+    },
+    10: {#_VERBESSERUNG
+        "text-10-1": None, "text-10-2": None, "text-10-3": None,
+        "text-10-4": None, "text-10-5": None, "text-10-6": None
     },
     16: {
         "text-16-1": None, "text-16-2": None, "text-16-3": None,
@@ -593,6 +607,164 @@ CHECK_BOX_VALUES = {
 }
 
 SESSION_ID_VALUE = None
+
+####################Canvas Zeichenfeld fuer Seite 10 (wird in der create_page Methode ebenfalls ueber die Collapse-Liste appendet)
+transparent_image_base64 = "data:image/png;base64,"
+canvas_element_seite_10 = canvas_element = DashCanvas(#_VERBESSERUNG
+    id='canvas',
+    width=3000,
+    height=1000,
+    hide_buttons=['line', 'zoom', 'pan', 'undo', 'redo', 'fill', 'rect', 'circle', 'poly', 'free', 'select', 'pencil', 'rectangle'],
+    goButtonTitle=None,
+    lineWidth=3,
+    image_content=transparent_image_base64,
+)
+
+
+
+####################DBC Collapse Elemente fuer Seite 9, die sich oeffnende Texte ermoeglichen - 
+##Dash Callbacks ganz unten im Code
+collapse_component = dbc.Container(  #_Verbesserung
+    [
+        dbc.Button(
+            "Acetylcholin (ACh) - foerdert Muskelbewegungen und unterstuetzt Gedaechtnis und Aufmerksamkeit",
+            id="collapse-button-1",
+            className="mb-1 w-100",
+            #style={"backgroundColor": "#F7F7F7", "borderColor": "#F7F7F7", "width": "100%"},
+            color="secondary",
+            n_clicks=0,
+        ),
+        #style={"width": "100%"},
+        #className="d-flex justify-content-center",  # Zentriert 
+        dbc.Collapse(
+            [
+                html.P("Acetylcholin ist ein Neurotransmitter, der bei der Muskelbewegung und in kognitiven Prozessen wie Lernen und Gedaechtnis eine Schluesselrolle spielt. Es wird vom Koerper sowohl im Gehirn als auch in peripheren Nerven verwendet. Spannend ist, dass Acetylcholin ueber verschiedene Rezeptoren unterschiedlich wirken kann - es kann die Herzfrequenz senken oder Muskeln anregen. Nach seiner Freisetzung wird es durch ein Enzym schnell abgebaut, um die Signaluebertragung zu beenden. Diese vielseitige Wirkung zeigt, wie es in einigen Prozessen aktiviert und in anderen gehemmt werden kann."),
+            ],
+            id="collapse-1",
+            style={"border": "1px solid black"},
+        ),
+        #html.Br(),
+        
+        dbc.Button(
+            "Dopamin - reguliert Belohnung und Motivation und steuert emotionale Reaktionen",
+            id="collapse-button-2",
+            className="mb-1 w-100",
+            #style={"backgroundColor": "#F7F7F7", "borderColor": "#F7F7F7", "width": "100%"},
+            color="secondary",
+            n_clicks=0,
+        ),
+        dbc.Collapse(
+            [
+                html.P("Dopamin ist bekannt dafuer, unser Belohnungssystem zu aktivieren, wenn wir etwas Angenehmes tun, wie ein Stueck Schokolade zu essen. Es ist auch wichtig fuer unsere Motivation und es hilft uns, Bewegungen zu steuern. Gleichzeitig wirkt Dopamin in manchen Bereichen regulierend, indem es die Aktivitaet von Nervenzellen daempft, um Bewegungen praezise zu steuern. Ein Mangel fuehrt zu Bewegungsstoerungen wie Parkinson, waehrend ein Ueberschuss mit Schizophrenie in Verbindung gebracht wird. Die Balance von Dopamin ist daher essentiell fuer das Wohlbefinden und die Gesundheit des Gehirns."),
+            ],
+            id="collapse-2",
+            style={"border": "1px solid black"}
+        ),
+        #html.Br(),
+        
+        dbc.Button(
+            "Serotonin - reguliert Stimmung und Schlaf und beeinflusst den Appetit",
+            id="collapse-button-3",
+            className="mb-1 w-100",
+            #style={"backgroundColor": "#F7F7F7", "borderColor": "#F7F7F7", "width": "100%"},
+            color="secondary",
+            n_clicks=0,
+        ),
+        dbc.Collapse(
+            [
+                html.P("Serotonin ist ein Neurotransmitter, der unsere Stimmung , den Schlaf und den Appetit reguliert. Es sorgt dafuer, dass wir uns ausgeglichen fuehlen und es ist an vielen Prozessen im Gehirn beteiligt. Interessant ist, dass Serotonin je nach Rezeptor sowohl aktivierend (bei der Unterstuetzung kognitiver Prozesse) als auch beruhigend (bei der Foerderung von Schlaf) wirken kann. Ein Ungleichgewicht kann Depressionen oder Angstzustaende ausloesen. Die vielfaeltige Wirkung mahct Serotonin zu einem wichtigen 'Manager' fuer die Balance von kognitiven Prozessen."),
+            ],
+            id="collapse-3",
+            style={"border": "1px solid black"},
+        ),
+        #html.Br(),
+        
+        dbc.Button(
+            "Noradrenalin - steuert die 'Fight & Flight'-Reaktion und foerdert Wachsamkeit",
+            id="collapse-button-4",
+            className="mb-1 w-100",
+            #style={"backgroundColor": "#F7F7F7", "borderColor": "#F7F7F7", "width": "100%"},
+            color="secondary",
+            n_clicks=0,
+        ),
+        dbc.Collapse(
+            [
+                html.P("Noradrenalin sorgt dafuer, dass wir wach und aufmerksam bleiben, besonders in stressigen Situationen. Es versetzt unseren Koerper in Alarmbereitschaft und steigert Herzschlag und Atmung, um auf Gefahren vorbereitet zu sein. Gleichzeitig reguliert Noradrenalin auch die Konzentration und hilft uns beim Fokussieren. Diese aktivierende WIrkung ist essenziell fuer unsere 'Fight & Flight'-Reaktion und zeigt, wie es in dynamischen Situationen das Nervensystem antreibt."),
+            ],
+            id="collapse-4",
+            style={"border": "1px solid black"},
+        ),
+        #html.Br(),
+        
+        dbc.Button(
+            "Gamma-Aminobuttersaeure (GABA) - reduziert Erregung und foerdert Entspannung",
+            id="collapse-button-5",
+            className="mb-1 w-100",
+            #style={"backgroundColor": "#F7F7F7", "borderColor": "#F7F7F7", "width": "100%"},
+            color="secondary",
+            n_clicks=0,
+        ),
+        dbc.Collapse(
+            [
+                html.P("GABA ist der wichtigste Neurotransmitter im Gehirn, um in stressigen Situationen ruhig bleiben zu koennen. Es wirkt wie eine Bremse, die Nervenzellen daran hindert, uebermaessig aktiv zu werden. Besonders interessant ist, dass viele Beruhigungsmittel die Wirkung von GABA verstaerken, wodurch Aengste reduziert werden und der Schlaf gefoerdert wird. Ohne GABA koennte das Gehirn in einen Zustand der Uebererregung geraten. Seine Faehigkeit, uebermaessige Aktivitaet zu hemmen, macht es zu einem Schutzfaktor fuer das Nervensystem."),
+            ],
+            id="collapse-5",
+            style={"border": "1px solid black"},
+        ),
+        #html.Br(),
+        
+        dbc.Button(
+            "Glutamat - verstaerkt Errregung und spielt eine Schluesselrolle beim Lernen",
+            id="collapse-button-6",
+            className="mb-1 w-100",
+            #style={"backgroundColor": "#F7F7F7", "borderColor": "#F7F7F7", "width": "100%"},
+            color="secondary",
+            n_clicks=0,
+        ),
+        dbc.Collapse(
+            [
+                html.P("Glutamat ist der wichtigste aktivierende Neurotransmitter im Gehirn und sorgt dafuer, dass Nervenzellen Signale weiterleiten koennen. Es ist essenziell, fuer Denkprozesse und das Gedaechtnis. Weiterhin wirkt es ueber spezielle Rezeptoren, die die synaptische Verbindung zwischen Nervenzellen staerken. Zu viel Glutamat kann jedoch schaedlich sein und die Nervenzellen ueberlasten, weshalb der Koerper die Konzentration im System streng kontrolliert. Seine Aufgabe, neuronale Aktivitaet gezielt anzutreiben, macht es zu einem Motor fuer die Informationsverarbeitung im Gehirn."),
+            ],
+            id="collapse-6",
+            style={"border": "1px solid black"},
+        ),
+        #html.Br(),
+        
+        dbc.Button(
+            "Endorphine - wirken als natuerliches Schmerzmittel und foerdert Gefuehle von Euphorie",
+            id="collapse-button-7",
+            className="mb-1 w-100",
+            #style={"backgroundColor": "#F7F7F7", "borderColor": "#F7F7F7", "width": "100%"},
+            color="secondary",
+            n_clicks=0,
+        ),
+        dbc.Collapse(
+            [
+                html.P("Endorphine sind natuerliche Schmerzmitttel, die in Stresssituationen oder bei intensiver Bewegung wie Laufen freigesetzt werden.  Sie blockieren Schmerzsignaleund foerdern Gefuehle von Freude und Entspannung, man denke z.B. an das 'Runner's High' beim Jogging. Gleichzeitig regulieren Endorphine emotionale Reaktionen und helfen, den Koerper mit Belastungen umzugehen. Durch ihre Faehigkeit, gezielt die Weiterleitung unangenehmer Signale zu blockieren, daempfen sie das Schmerzempfinden."),
+            ],
+            id="collapse-7",
+            style={"border": "1px solid black"},
+        ),
+        #html.Br(),
+        
+        dbc.Button(
+            "Histamin - reguliert den 'Schlaf-Wach-Rhythmus und steuert Immunreaktionen'",
+            id="collapse-button-8",
+            className="mb-1 w-100",
+            #style={"backgroundColor": "#F7F7F7", "borderColor": "#F7F7F7", "width": "100%"},
+            color="secondary",
+            n_clicks=0,
+        ),
+        dbc.Collapse(
+            [
+                html.P("Histamin ist ein Neurotransmitter, der Achtsamkeit und Konzentration steigert und gleichzeitig Hunger- und Schlafsignale im Gehirn steuert. Es spielt nicht nur bei Allergien eine Rolle, sondern ist auch fuer die Regulation von Appetet und Magensaeureproduktion verantwortlich. Interessant ist, dass Histamin durch diese aktivierenden Funktionen nicht nur die Aufmerksamkeit, sondern auch koerperliche Prozeses wie die Verdauung anregt. Ohne Histamin waeren wir viel weniger aufmerksam und leistungsfaehig."),
+            ],
+            id="collapse-8",
+            style={"border": "1px solid black"},
+        ),
+    ],
+    className="p-5",
+)
 
 
 ####################DBC Modale, um kleine Popups zu oeffnen - die Dash-Callbacks zu den Modalen 
@@ -894,6 +1066,31 @@ def create_page(page_num):
                     }
                 )
             )
+
+    ##### Hier wird das DBC Collapse Element auf Seite 5 erzeugt
+    collapse_elemente = [] #_Verbesserung
+    if page_num == 9:
+        collapse_elemente.append(
+            html.Div(
+            collapse_component,
+            style={"marginTop": "26%"}  # Hier wird der Abstand oben angepasst
+            )
+        )
+    
+    ##### Dash Canvas auf Seite 10
+    if page_num == 10:
+        collapse_elemente.append(
+            html.Div(
+                canvas_element_seite_10,
+                style={
+                    "position": "absolute",
+                    "top": "24%",
+                    "left": "0%",
+                    "width": "100%",
+                    "height": "50vh",
+                }
+            )
+        )
     
     ##### Hier sind die Buttons fuer die DBC Modale eingebaut
     modal_button_elemente = []
@@ -1404,8 +1601,8 @@ def create_page(page_num):
                                 "height": "100%",
                                 "pointerEvents": "auto",
                             },
-                            children=umfrage_elemente + text_fields + check_boxes + buttons + navigation_buttons + modal_button_elemente #+ umfrage_elemente #+ ([audio_div] if audio_div else [])
-                        )
+                            children=collapse_elemente + umfrage_elemente + text_fields + check_boxes + buttons + navigation_buttons + modal_button_elemente #+ umfrage_elemente #+ ([audio_div] if audio_div else [])
+                        )#_VERBESSERUNG
                     ]
                 )
             ]
@@ -1707,6 +1904,21 @@ def toggle_kameraanalyse(n1, n2, is_open):
         return not is_open
     return is_open
 
+for i in range(1, 9): #_Verbesserung
+    @app.callback(
+        Output(f"collapse-{i}", "is_open"),
+        [Input(f"collapse-button-{i}", "n_clicks")],
+        [State(f"collapse-{i}", "is_open")],
+    )
+    def toggle_collapse(n, is_open, i=i):
+        global SESSION_ID_VALUE
+        if n:
+            if not is_open:  # Collapse wird geoeffnet
+                log_interaction(user_id=SESSION_ID_VALUE, element_id=f"Collapse-Button-{i}-Oeffnung", value=f"Collapse {i} wurde geoeffnet.")
+            elif is_open:  # Collapse wird geschlossen
+                log_interaction(user_id=SESSION_ID_VALUE, element_id=f"Collapse-Button-{i}-Schliessung", value=f"Collapse {i} wurde geschlossen.")
+            return not is_open
+        return is_open
 '''
 @app.callback(
     Output('audio-data-output', 'children'),
