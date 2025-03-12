@@ -1151,6 +1151,7 @@ def create_page(page_num):
             })
         ]
 
+    #YT Kommentaranalyse oeffnen
     if page_num == 20:
         modal_button_elemente = [
             html.Div([
@@ -1178,6 +1179,7 @@ def create_page(page_num):
             })
         ]
 
+    #Zeichenfeld mit Koordinatensystem
     if page_num == 33:
         modal_button_elemente = [
             html.Div([
@@ -1196,6 +1198,61 @@ def create_page(page_num):
                     }
                 ),
                 modal_zeichenfenster,
+            ],
+            style={
+                "position": "absolute",
+                "top": "19%",  # Sie koennen diese Werte anpassen
+                "left": "10%",  # Sie koennen diese Werte anpassen
+                "transform": "translate(-30%, -30%)"
+            })
+        ]
+    #Zeichenfeld ohne Koordinatensystem
+    if page_num == 35:
+        modal_button_elemente = [
+            html.Div([
+                dbc.Button(
+                    "Zeichenfenster oeffnen", 
+                    id="open-zeichenfenster-modal-ohne-ks",
+                    n_clicks=0,
+                    style={
+                        'backgroundColor': 'grey',
+                        'color': 'black',
+                        'border': 'none',
+                        'padding': '10px 20px',
+                        'fontSize': '16px',
+                        'borderRadius': '5px',
+                        'cursor': 'pointer'
+                    }
+                ),
+                modal_zeichenfenster_ohne_ks,
+            ],
+            style={
+                "position": "absolute",
+                "top": "19%",  # Sie koennen diese Werte anpassen
+                "left": "10%",  # Sie koennen diese Werte anpassen
+                "transform": "translate(-30%, -30%)"
+            })
+        ]
+        
+    #Zeichenfeld ohne Koordinatensystem
+    if page_num == 37:
+        modal_button_elemente = [
+            html.Div([
+                dbc.Button(
+                    "Zeichenfenster oeffnen", 
+                    id="open-zeichenfenster-modal-ohne-ks",
+                    n_clicks=0,
+                    style={
+                        'backgroundColor': 'grey',
+                        'color': 'black',
+                        'border': 'none',
+                        'padding': '10px 20px',
+                        'fontSize': '16px',
+                        'borderRadius': '5px',
+                        'cursor': 'pointer'
+                    }
+                ),
+                modal_zeichenfenster_ohne_ks,
             ],
             style={
                 "position": "absolute",
