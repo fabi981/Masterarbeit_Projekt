@@ -63,12 +63,13 @@ from datetime import datetime
 def create_logger(filename):
     logger = logging.getLogger(filename)
     logger.setLevel(logging.INFO)
-    
-    handler = logging.FileHandler(filename, mode='a')
-    formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
-    handler.setFormatter(formatter)
-    
-    logger.addHandler(handler)
+
+    if not any(isinstance(handler, logging.FileHandler) and handler.baseFilename == filename for handler in logger.handlers): #<-- musste veraendert werden, um Duplikate zu vermeiden
+        handler = logging.FileHandler(filename, mode='a')
+        formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+        handler.setFormatter(formatter)
+        
+        logger.addHandler(handler)
     return logger
 
 # Funktion zum Loggen von Interaktionen
