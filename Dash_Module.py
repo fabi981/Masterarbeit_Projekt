@@ -308,8 +308,8 @@ TEXT_FIELDS = {
         {"id": "text-49-2", "value": None, "x": 52.5, "y": 67.5, "width": 95, "height": 45.0, "changable": True},
     ],
     50: [#pruefen ob Seitenzahl passt
-        {"id": "text-50-3", "value": None, "x": 52.5, "y": 40, "width": 95, "height": 35.0, "changable": True},
-        {"id": "text-50-4", "value": None, "x": 52.5, "y": 62, "width": 95, "height": 45.0, "changable": True},
+        {"id": "text-50-1", "value": None, "x": 52.5, "y": 40, "width": 95, "height": 35.0, "changable": True},
+        {"id": "text-50-2", "value": None, "x": 52.5, "y": 62, "width": 95, "height": 45.0, "changable": True},
     ],
     51: [#pruefen ob Seitenzahl passt
         {"id": "text-51-1", "value": None, "x": 43.5, "y": 59, "width": 80, "height": 60.0, "changable": True},
@@ -1599,7 +1599,7 @@ def create_page(page_num):
                     ),
                     style={
                         "position": "absolute",
-                        "top": f"{field['y']}%",  
+                        "top": f"20%", #hier custom Wert wurde eingetragen  
                         "left": f"{field['x']}%",  
                         "width": f"{field['width']}%",  
                         "height": f"{field['height']}%",  
@@ -1633,7 +1633,7 @@ def create_page(page_num):
                     ),
                     style={
                         "position": "absolute",
-                        "top": f"{field['y']}%",  
+                        "top": f"20%",  #hier custom Wert wurde eingetragen 
                         "left": f"{field['x']}%",  
                         "width": f"{field['width']}%",  
                         "height": f"{field['height']}%",  
@@ -1667,7 +1667,7 @@ def create_page(page_num):
                     ),
                     style={
                         "position": "absolute",
-                        "top": f"{field['y']}%",  
+                        "top": f"20%",  #hier custom Wert wurde eingetragen 
                         "left": f"{field['x']}%",  
                         "width": f"{field['width']}%",  
                         "height": f"{field['height']}%",  
@@ -1701,7 +1701,7 @@ def create_page(page_num):
                     ),
                     style={
                         "position": "absolute",
-                        "top": f"{field['y']}%",  
+                        "top": f"20%",  #hier custom Wert wurde eingetragen 
                         "left": f"{field['x']}%",  
                         "width": f"{field['width']}%",  
                         "height": f"{field['height']}%",  
@@ -1735,7 +1735,7 @@ def create_page(page_num):
                     ),
                     style={
                         "position": "absolute",
-                        "top": f"{field['y']}%",  
+                        "top": f"20%",  #hier custom Wert wurde eingetragen 
                         "left": f"{field['x']}%",  
                         "width": f"{field['width']}%",  
                         "height": f"{field['height']}%",  
@@ -1769,7 +1769,7 @@ def create_page(page_num):
                     ),
                     style={
                         "position": "absolute",
-                        "top": f"{field['y']}%",  
+                        "top": f"20%", #hier custom Wert wurde eingetragen  
                         "left": f"{field['x']}%",  
                         "width": f"{field['width']}%",  
                         "height": f"{field['height']}%",  
