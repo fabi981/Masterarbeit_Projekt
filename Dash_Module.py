@@ -479,12 +479,12 @@ class MaskUnmasker:
             # Fuehre die Vorhersage durch
             if text == None:
                 text = TEXT_FIELD_VALUES[page_eingabe][textfield_id_eingabe]
-                print("unmask_sentence: Text: ", text, "Typ des Textes: ", type(text))
+                #print("unmask_sentence: Text: ", text, "Typ des Textes: ", type(text))
                 
             predictions = fill_mask(text)
             # Extrahiere die beste Vorhersage
             best_prediction = predictions[0]['sequence']  # Beste Vorhersage ausgeben
-
+            print("unmask_sentence: BEST PREDICTION: ", best_prediction, " Typ der best_prediction: ", type(best_prediction))
             if textfield_id_ausgabe != None:
                 TEXT_FIELD_VALUES[page_ausgabe][textfield_id_ausgabe] = best_prediction
             
