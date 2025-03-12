@@ -1599,7 +1599,7 @@ def create_page(page_num):
                     ),
                     style={
                         "position": "absolute",
-                        "top": f"40%", #hier custom Wert wurde eingetragen  
+                        "top": f"42%", #hier custom Wert wurde eingetragen  
                         "left": f"{field['x']}%",  
                         "width": f"{field['width']}%",  
                         "height": f"{field['height']}%",  
@@ -1667,7 +1667,7 @@ def create_page(page_num):
                     ),
                     style={
                         "position": "absolute",
-                        "top": f"45%",  #hier custom Wert wurde eingetragen 
+                        "top": f"42%",  #hier custom Wert wurde eingetragen 
                         "left": f"{field['x']}%",  
                         "width": f"{field['width']}%",  
                         "height": f"{field['height']}%",  
@@ -1701,7 +1701,7 @@ def create_page(page_num):
                     ),
                     style={
                         "position": "absolute",
-                        "top": f"40%",  #hier custom Wert wurde eingetragen 
+                        "top": f"42%",  #hier custom Wert wurde eingetragen 
                         "left": f"{field['x']}%",  
                         "width": f"{field['width']}%",  
                         "height": f"{field['height']}%",  
@@ -1735,7 +1735,7 @@ def create_page(page_num):
                     ),
                     style={
                         "position": "absolute",
-                        "top": f"50%",  #hier custom Wert wurde eingetragen 
+                        "top": f"40%",  #hier custom Wert wurde eingetragen 
                         "left": f"{field['x']}%",  
                         "width": f"{field['width']}%",  
                         "height": f"{field['height']}%",  
@@ -1771,8 +1771,8 @@ def create_page(page_num):
                         "position": "absolute",
                         "top": f"45%", #hier custom Wert wurde eingetragen  
                         "left": f"{field['x']}%",  
-                        "width": f"{field['width']}%",  
-                        "height": f"{field['height']}%",  
+                        "width": f"60%",  
+                        "height": f"20%",   #custom
                         "transform": "translate(-50%, -50%)", 
                     }
                 )
