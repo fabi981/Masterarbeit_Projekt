@@ -1599,7 +1599,7 @@ def create_page(page_num):
                     ),
                     style={
                         "position": "absolute",
-                        "top": f"35%", #hier custom Wert wurde eingetragen  
+                        "top": f"40%", #hier custom Wert wurde eingetragen  
                         "left": f"{field['x']}%",  
                         "width": f"{field['width']}%",  
                         "height": f"{field['height']}%",  
@@ -1633,7 +1633,7 @@ def create_page(page_num):
                     ),
                     style={
                         "position": "absolute",
-                        "top": f"35%",  #hier custom Wert wurde eingetragen 
+                        "top": f"40%",  #hier custom Wert wurde eingetragen 
                         "left": f"{field['x']}%",  
                         "width": f"{field['width']}%",  
                         "height": f"{field['height']}%",  
@@ -1667,7 +1667,7 @@ def create_page(page_num):
                     ),
                     style={
                         "position": "absolute",
-                        "top": f"35%",  #hier custom Wert wurde eingetragen 
+                        "top": f"45%",  #hier custom Wert wurde eingetragen 
                         "left": f"{field['x']}%",  
                         "width": f"{field['width']}%",  
                         "height": f"{field['height']}%",  
@@ -1701,7 +1701,7 @@ def create_page(page_num):
                     ),
                     style={
                         "position": "absolute",
-                        "top": f"35%",  #hier custom Wert wurde eingetragen 
+                        "top": f"40%",  #hier custom Wert wurde eingetragen 
                         "left": f"{field['x']}%",  
                         "width": f"{field['width']}%",  
                         "height": f"{field['height']}%",  
@@ -1735,7 +1735,7 @@ def create_page(page_num):
                     ),
                     style={
                         "position": "absolute",
-                        "top": f"35%",  #hier custom Wert wurde eingetragen 
+                        "top": f"50%",  #hier custom Wert wurde eingetragen 
                         "left": f"{field['x']}%",  
                         "width": f"{field['width']}%",  
                         "height": f"{field['height']}%",  
@@ -1769,7 +1769,7 @@ def create_page(page_num):
                     ),
                     style={
                         "position": "absolute",
-                        "top": f"35%", #hier custom Wert wurde eingetragen  
+                        "top": f"45%", #hier custom Wert wurde eingetragen  
                         "left": f"{field['x']}%",  
                         "width": f"{field['width']}%",  
                         "height": f"{field['height']}%",  
