@@ -209,10 +209,10 @@ TEXT_FIELDS = {
         {"id": "text-10-6", "value": None, "x": 47, "y": 66, "width": 40, "height": 15.0, "changable": True},
     ],
     16: [
-        {"id": "text-16-1", "value": None, "x": 51, "y": 48, "width": 93, "height": 27.0, "changable": True},
-        {"id": "text-16-2", "value": None, "x": 51, "y": 61.5, "width": 93, "height": 27.0, "changable": True},
-        {"id": "text-16-3", "value": None, "x": 51, "y": 77, "width": 93, "height": 31.0, "changable": True},
-        {"id": "text-16-4", "value": None, "x": 51, "y": 93.4, "width": 93, "height": 31.0, "changable": True},
+        {"id": "text-16-1", "value": None, "x": 51, "y": 38, "width": 93, "height": 27.0, "changable": True},
+        {"id": "text-16-2", "value": None, "x": 51, "y": 51.5, "width": 93, "height": 27.0, "changable": True},
+        {"id": "text-16-3", "value": None, "x": 51, "y": 67, "width": 93, "height": 31.0, "changable": True},
+        {"id": "text-16-4", "value": None, "x": 51, "y": 83.4, "width": 93, "height": 31.0, "changable": True},
     ],
     18: [
         {"id": "text-18-1", "value": "Stell dir vor, hier waeren deine Audiodaten klassifiziert worden.", "x": 37, "y": 21, "width": 65, "height": 18.0, "changable": False},
