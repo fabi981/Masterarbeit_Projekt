@@ -6,5 +6,7 @@ redis==5.0.9
 requests==2.31.0
 python-socketio==5.8.0
 dash-canvas
-tensorflow>==2.11
+torch
+torchaudio
+torchvision
 
