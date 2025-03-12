@@ -7,6 +7,7 @@ from dash import Dash, html, dcc, Input, Output, State, no_update, callback_cont
 import dash.dash_table
 from dash.exceptions import NonExistentEventException, PreventUpdate
 import dash_bootstrap_components as dbc
+from dash_canvas import DashCanvas
 
 from flask import Flask, request, jsonify, session, render_template_string, redirect, copy_current_request_context
 from socketio import Client
@@ -15,6 +16,9 @@ import os
 
 import threading
 import requests
+
+import logging#_Verbesserung
+from datetime import datetime #_Verbesserung
 
 #from transformers import pipeline
 
