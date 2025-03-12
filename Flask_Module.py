@@ -138,6 +138,8 @@ TEXT_FIELDS = {
         {"id": "text-5-5", "value": None, "x": 60, "y": 62.3, "width": 35, "height": 18.0, "changable": True},
         {"id": "text-5-6", "value": None, "x": 62, "y": 82.4, "width": 35, "height": 18.0, "changable": True},
         {"id": "text-5-7", "value": None, "x": 70, "y": 59.2, "width": 35, "height": 18.0, "changable": True},
+
+        {"id": "text-5-8", "value": None, "x": 52, "y": 100, "width": 95, "height": 38.0, "changable": True}, #_Verbesserung
     ],
     6: [
         {"id": "text-6-1", "value": None, "x": 58, "y": 72.3, "width": 50, "height": 18.0, "changable": True},
@@ -153,6 +155,14 @@ TEXT_FIELDS = {
     ],
     8: [
         {"id": "text-8-1", "value": None, "x": 37, "y": 91, "width": 65, "height": 58.0, "changable": True},
+    ],
+    10: [#_VERBESSERUNG
+        {"id": "text-10-1", "value": None, "x": 20, "y": 60, "width": 40, "height": 18.0, "changable": True},
+        {"id": "text-10-2", "value": None, "x": 20, "y": 63, "width": 40, "height": 18.0, "changable": True},
+        {"id": "text-10-3", "value": None, "x": 20, "y": 66, "width": 40, "height": 18.0, "changable": True},
+        {"id": "text-10-4", "value": None, "x": 20, "y": 69, "width": 40, "height": 18.0, "changable": True},
+        {"id": "text-10-5", "value": None, "x": 20, "y": 72, "width": 40, "height": 18.0, "changable": True},
+        {"id": "text-10-6", "value": None, "x": 20, "y": 75, "width": 40, "height": 18.0, "changable": True},
     ],
     16: [
         {"id": "text-16-1", "value": None, "x": 51, "y": 58, "width": 93, "height": 27.0, "changable": True},
