@@ -1228,7 +1228,7 @@ def create_page(page_num):
             ],
             style={
                 "position": "absolute",
-                "top": "39%",  # 
+                "top": "45%",  # 
                 "left": "10%",  # 
                 "transform": "translate(-30%, -30%)"
             })
@@ -1256,7 +1256,7 @@ def create_page(page_num):
             ],
             style={
                 "position": "absolute",
-                "top": "39%",  # Sie koennen diese Werte anpassen
+                "top": "43%",  # Sie koennen diese Werte anpassen
                 "left": "10%",  # Sie koennen diese Werte anpassen
                 "transform": "translate(-30%, -30%)"
             })
