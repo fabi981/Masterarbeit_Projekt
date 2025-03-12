@@ -472,6 +472,7 @@ class MaskUnmasker:
             str: Der Text mit dem ersetzten [MASK]-Token.
         """
         print("unmask_sentence: wurde aufgerufen")
+        global TEXT_FIELD_VALUES
         try:
             # Initialisiere die fill-mask-Pipeline
             if fill_mask==None:
@@ -505,6 +506,7 @@ def unmask_page_94():
     print("unmask_page_94: wurde aufgerufen.")
     global fill_mask
     MaskUnmasker.unmask_sentence(fill_mask=fill_mask, page_eingabe=94, page_ausgabe=94, textfield_id_eingabe="text-94-1", textfield_id_ausgabe="text-94-2")
+    #print("Textfeld text-94-2 Value: )
 
 
 # Checkboxes-Mapping: Checkboxen mit IDs; Seitenzahl -> Checkbox-ID -> Koordinaten/Skalierung/anfaenglicher Checked-Zustand 
