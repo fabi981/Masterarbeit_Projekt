@@ -211,8 +211,8 @@ TEXT_FIELDS = {
     16: [
         {"id": "text-16-1", "value": None, "x": 51, "y": 43, "width": 93, "height": 25.0, "changable": True},
         {"id": "text-16-2", "value": None, "x": 51, "y": 54, "width": 93, "height": 25.0, "changable": True},
-        {"id": "text-16-3", "value": None, "x": 51, "y": 66, "width": 93, "height": 25.0, "changable": True},
-        {"id": "text-16-4", "value": None, "x": 51, "y": 80, "width": 93, "height": 35.0, "changable": True},
+        {"id": "text-16-3", "value": None, "x": 51, "y": 65, "width": 93, "height": 25.0, "changable": True},
+        {"id": "text-16-4", "value": None, "x": 51, "y": 81, "width": 93, "height": 35.0, "changable": True},
     ],
     18: [
         {"id": "text-18-1", "value": "Stell dir vor, hier waeren deine Audiodaten klassifiziert worden.", "x": 37, "y": 21, "width": 65, "height": 18.0, "changable": False},
