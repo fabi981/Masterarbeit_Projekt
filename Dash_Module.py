@@ -1592,7 +1592,7 @@ def create_page(page_num):
                             'backgroundColor': 'rgba(255, 255, 255, 0.8)',
                             'resize': 'none',  
                             #'pointerEvents': 'auto', 
-                            'pointerEvents': 'none'
+                            'pointerEvents': 'none',
                             'opacity': '0.7' #
                             
                         }
