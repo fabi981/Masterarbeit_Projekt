@@ -455,11 +455,11 @@ TEXT_FIELD_VALUES = {
     },
 }
 
-
+fill_mask = pipeline("fill-mask", model="bert-base-cased")
 ##### Erraedt maskierten Token eines Satzes der Form Ich trinke gerne [Mask].
 class MaskUnmasker:
     @staticmethod
-    def unmask_sentence(page_eingabe=None, textfield_id_eingabe=None, page_ausgabe=None, textfield_id_ausgabe=None, text=None,  model_name="bert-base-cased"):
+    def unmask_sentence(fill_mask=None, page_eingabe=None, textfield_id_eingabe=None, page_ausgabe=None, textfield_id_ausgabe=None, text=None,  model_name="bert-base-cased"):
         """
         Ersetzt das [MASK]-Token im gegebenen Text durch das wahrscheinlichste Wort.
 
@@ -474,7 +474,8 @@ class MaskUnmasker:
         print("unmask_sentence: wurde aufgerufen")
         try:
             # Initialisiere die fill-mask-Pipeline
-            fill_mask = pipeline("fill-mask", model=model_name)
+            if fill_mask==None:
+                fill_mask = pipeline("fill-mask", model=model_name)
             print("unmask_sentence: Pipeline fill_mask wurde initialisiert")
             # Fuehre die Vorhersage durch
             if text == None:
@@ -502,7 +503,8 @@ def unmask_page_93():
 
 def unmask_page_94():
     print("unmask_page_94: wurde aufgerufen.")
-    MaskUnmasker.unmask_sentence(page_eingabe=94, page_ausgabe=94, textfield_id_eingabe="text-94-1", textfield_id_ausgabe="text-94-2")
+    global fill_mask
+    MaskUnmasker.unmask_sentence(fill_mask=fill_mask, page_eingabe=94, page_ausgabe=94, textfield_id_eingabe="text-94-1", textfield_id_ausgabe="text-94-2")
 
 
 # Checkboxes-Mapping: Checkboxen mit IDs; Seitenzahl -> Checkbox-ID -> Koordinaten/Skalierung/anfaenglicher Checked-Zustand 
