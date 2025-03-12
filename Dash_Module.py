@@ -471,10 +471,11 @@ class MaskUnmasker:
         Returns:
             str: Der Text mit dem ersetzten [MASK]-Token.
         """
+        print("unmask_sentence: wurde aufgerufen")
         try:
             # Initialisiere die fill-mask-Pipeline
             fill_mask = pipeline("fill-mask", model=model_name)
-            
+            print("unmask_sentence: Pipeline fill_mask wurde initialisiert")
             # Fuehre die Vorhersage durch
             if text == None:
                 text = TEXT_FIELD_VALUES[page_eingabe][textfield_id_eingabe]
