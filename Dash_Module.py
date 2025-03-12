@@ -1574,7 +1574,7 @@ def autosave_checkboxes(n_intervals, ids, values):
 
 #####Socket-Callbacks
 @socketio_dashclient.on('textfields_to_dash')
-def handle_textfield_change(data):
+def handle_textfield_change(data=None):
     global TEXT_FIELD_VALUES
     print("handle_textfield_change: Erhaltene Textfelder: ", data)
     if data == None:
@@ -1592,7 +1592,7 @@ def handle_textfield_change(data):
     print("handle_textfield_change: TEXT_FIELD_VALUES: ", TEXT_FIELD_VALUES)
         
 @socketio_dashclient.on('checkboxes_to_dash')
-def handle_checkboxes_change(data):
+def handle_checkboxes_change(data=None):
     global CHECK_BOX_VALUES
     if data == None:
         return
