@@ -290,11 +290,11 @@ TEXT_FIELDS = {
     43: [#pruefen ob Seitenzahl passt
         {"id": "text-43-1", "value": None, "x": 52.5, "y": 37.5, "width": 95, "height": 30.0, "changable": True},
 
-        {"id": "text-43-2", "value": None, "x": 33, "y": 62, "width": 25, "height": 18.0, "changable": True},
-        {"id": "text-43-3", "value": None, "x": 41, "y": 62, "width": 25, "height": 18.0, "changable": True},
-        {"id": "text-43-4", "value": None, "x": 49, "y": 62, "width": 25, "height": 18.0, "changable": True},
-        {"id": "text-43-5", "value": None, "x": 57, "y": 62, "width": 25, "height": 18.0, "changable": True},
-        {"id": "text-43-6", "value": None, "x": 65, "y": 62, "width": 25, "height": 18.0, "changable": True},
+        {"id": "text-43-2", "value": None, "x": 30, "y": 63, "width": 25, "height": 18.0, "changable": True},
+        {"id": "text-43-3", "value": None, "x": 38, "y": 63, "width": 25, "height": 18.0, "changable": True},
+        {"id": "text-43-4", "value": None, "x": 46, "y": 63, "width": 25, "height": 18.0, "changable": True},
+        {"id": "text-43-5", "value": None, "x": 54, "y": 63, "width": 25, "height": 18.0, "changable": True},
+        {"id": "text-43-6", "value": None, "x": 62, "y": 63, "width": 25, "height": 18.0, "changable": True},
     ],
     44: [#pruefen ob Seitenzahl passt
         {"id": "text-44-1", "value": '4', "x": 31, "y": 95, "width": 25, "height": 18.0, "changable": False},
