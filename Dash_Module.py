@@ -1467,7 +1467,7 @@ def jump_to_page_or_chapter(jump_clicks, chapter_clicks, page_num, chapter_num):
 def update_login_status(n):
     global SESSION_ID_VALUE
     if SESSION_ID_VALUE != None:
-        log_interaction(user_id=SESSION_ID_VALUE, element_id = "Login-Status", value = "Nutzer hat sich eingeloggt.")
+        #log_interaction(user_id=SESSION_ID_VALUE, element_id = "Login-Status", value = "Nutzer hat sich eingeloggt.")
         return f"Eingeloggt mit Kennung: {SESSION_ID_VALUE}"
     else:
         return "Nicht eingeloggt!"
