@@ -131,7 +131,7 @@ def jump_to_chapter_8():
 
 #####Globale Variablen - Dash
 # Verzeichnis zu den Bildern (die 130 PDF-Seiten, die der Hintergrund sind)
-ASSETS_DIR = "./pages_8"
+ASSETS_DIR = "./pages_9"
 
 # Alle Bilddateien im Verzeichnis: Haben das Format Aufgabe3-1.png, Aufgabe3-2.png, usw.
 files = os.listdir(ASSETS_DIR) if os.path.exists(ASSETS_DIR) else []
