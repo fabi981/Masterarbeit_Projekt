@@ -310,11 +310,11 @@ CHECK_BOXES = {
         {"id": "checkbox-42-3", "x": 50, "y": 29, "scale": 2.5, "checked": False},
         {"id": "checkbox-42-4", "x": 50, "y": 31.8, "scale": 2.5, "checked": False, "changable": True},
     ],
-    43: [
-        {"id": "checkbox-43-1", "x": 60, "y": 37, "scale": 2.5, "checked": False, "changable": True},
-        {"id": "checkbox-43-2", "x": 60, "y": 39.8, "scale": 2.5, "checked": False, "changable": True},
-        {"id": "checkbox-43-3", "x": 60, "y": 42.7, "scale": 2.5, "checked": False, "changable": True},
-    ],
+    #43: [
+    #    {"id": "checkbox-43-1", "x": 60, "y": 37, "scale": 2.5, "checked": False, "changable": True},
+    #    {"id": "checkbox-43-2", "x": 60, "y": 39.8, "scale": 2.5, "checked": False, "changable": True},
+    #    {"id": "checkbox-43-3", "x": 60, "y": 42.7, "scale": 2.5, "checked": False, "changable": True},
+    #],
     44: [
         {"id": "checkbox-44-1", "x": 50, "y": 20.8, "scale": 2.5, "checked": False, "changable": False},
         {"id": "checkbox-44-2", "x": 50, "y": 23.5, "scale": 2.5, "checked": False, "changable": False},
