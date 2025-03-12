@@ -1770,8 +1770,8 @@ def create_page(page_num):
                     style={
                         "position": "absolute",
                         "top": f"36%", #hier custom Wert wurde eingetragen  
-                        "left": f"{field['x']}%",  
-                        "width": f"80%",  
+                        "left": f"20%",  #custom
+                        "width": f"100%",  #custom
                         "height": f"20%",   #custom
                         "transform": "translate(-50%, -50%)", 
                     }
