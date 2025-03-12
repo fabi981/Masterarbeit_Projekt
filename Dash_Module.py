@@ -1607,6 +1607,176 @@ def create_page(page_num):
                     }
                 )
             )
+
+    if page_num == 53:
+        field = TEXT_FIELDS[49][0] #Achtung Gefahr: Falls vor Textfeld 49-1 ein anderes eingefuegt wird, geht der Code nicht mehr
+        text_fields.append(
+                html.Div(
+                    dcc.Textarea(
+                        id={'type': 'text-field', 'index': field["id"]},
+                        value=TEXT_FIELD_VALUES[49]["text-49-1"] if TEXT_FIELD_VALUES[49]["text-49-1"] != None else "",  
+                        placeholder="",
+                        style={
+                            'width': f"{field['width']}%",  
+                            'height': f"{field['height']}%",  
+                            'padding': '10px',
+                            'fontSize': '16px',
+                            'border': '1px solid #ccc',
+                            'borderRadius': '5px',
+                            'backgroundColor': 'rgba(255, 255, 255, 0.8)',
+                            'resize': 'none',  
+                            #'pointerEvents': 'auto', 
+                            'pointerEvents': 'none',
+                            'opacity': '0.7' #
+                            
+                        }
+                    ),
+                    style={
+                        "position": "absolute",
+                        "top": f"{field['y']}%",  
+                        "left": f"{field['x']}%",  
+                        "width": f"{field['width']}%",  
+                        "height": f"{field['height']}%",  
+                        "transform": "translate(-50%, -50%)", 
+                    }
+                )
+            )
+
+    if page_num == 54:
+        field = TEXT_FIELDS[49][1] #Achtung Gefahr: Falls vor Textfeld 49-2 ein anderes eingefuegt wird, geht der Code nicht mehr
+        text_fields.append(
+                html.Div(
+                    dcc.Textarea(
+                        id={'type': 'text-field', 'index': field["id"]},
+                        value=TEXT_FIELD_VALUES[49]["text-49-2"] if TEXT_FIELD_VALUES[49]["text-49-2"] != None else "",  
+                        placeholder="",
+                        style={
+                            'width': f"{field['width']}%",  
+                            'height': f"{field['height']}%",  
+                            'padding': '10px',
+                            'fontSize': '16px',
+                            'border': '1px solid #ccc',
+                            'borderRadius': '5px',
+                            'backgroundColor': 'rgba(255, 255, 255, 0.8)',
+                            'resize': 'none',  
+                            #'pointerEvents': 'auto', 
+                            'pointerEvents': 'none',
+                            'opacity': '0.7' #
+                            
+                        }
+                    ),
+                    style={
+                        "position": "absolute",
+                        "top": f"{field['y']}%",  
+                        "left": f"{field['x']}%",  
+                        "width": f"{field['width']}%",  
+                        "height": f"{field['height']}%",  
+                        "transform": "translate(-50%, -50%)", 
+                    }
+                )
+            )
+
+    if page_num == 55:
+        field = TEXT_FIELDS[50][0] #Achtung Gefahr: Falls vor Textfeld 49-2 ein anderes eingefuegt wird, geht der Code nicht mehr
+        text_fields.append(
+                html.Div(
+                    dcc.Textarea(
+                        id={'type': 'text-field', 'index': field["id"]},
+                        value=TEXT_FIELD_VALUES[50]["text-50-1"] if TEXT_FIELD_VALUES[50]["text-50-1"] != None else "",  
+                        placeholder="",
+                        style={
+                            'width': f"{field['width']}%",  
+                            'height': f"{field['height']}%",  
+                            'padding': '10px',
+                            'fontSize': '16px',
+                            'border': '1px solid #ccc',
+                            'borderRadius': '5px',
+                            'backgroundColor': 'rgba(255, 255, 255, 0.8)',
+                            'resize': 'none',  
+                            #'pointerEvents': 'auto', 
+                            'pointerEvents': 'none',
+                            'opacity': '0.7' #
+                            
+                        }
+                    ),
+                    style={
+                        "position": "absolute",
+                        "top": f"{field['y']}%",  
+                        "left": f"{field['x']}%",  
+                        "width": f"{field['width']}%",  
+                        "height": f"{field['height']}%",  
+                        "transform": "translate(-50%, -50%)", 
+                    }
+                )
+            )
+    
+    if page_num == 56:
+        field = TEXT_FIELDS[50][1] #Achtung Gefahr: Falls vor Textfeld 49-2 ein anderes eingefuegt wird, geht der Code nicht mehr
+        text_fields.append(
+                html.Div(
+                    dcc.Textarea(
+                        id={'type': 'text-field', 'index': field["id"]},
+                        value=TEXT_FIELD_VALUES[50]["text-50-2"] if TEXT_FIELD_VALUES[50]["text-50-2"] != None else "",  
+                        placeholder="",
+                        style={
+                            'width': f"{field['width']}%",  
+                            'height': f"{field['height']}%",  
+                            'padding': '10px',
+                            'fontSize': '16px',
+                            'border': '1px solid #ccc',
+                            'borderRadius': '5px',
+                            'backgroundColor': 'rgba(255, 255, 255, 0.8)',
+                            'resize': 'none',  
+                            #'pointerEvents': 'auto', 
+                            'pointerEvents': 'none',
+                            'opacity': '0.7' #
+                            
+                        }
+                    ),
+                    style={
+                        "position": "absolute",
+                        "top": f"{field['y']}%",  
+                        "left": f"{field['x']}%",  
+                        "width": f"{field['width']}%",  
+                        "height": f"{field['height']}%",  
+                        "transform": "translate(-50%, -50%)", 
+                    }
+                )
+            )
+
+    if page_num == 57:
+        field = TEXT_FIELDS[51][0] #Achtung Gefahr: Falls vor Textfeld 49-2 ein anderes eingefuegt wird, geht der Code nicht mehr
+        text_fields.append(
+                html.Div(
+                    dcc.Textarea(
+                        id={'type': 'text-field', 'index': field["id"]},
+                        value=TEXT_FIELD_VALUES[51]["text-51-1"] if TEXT_FIELD_VALUES[51]["text-51-1"] != None else "",  
+                        placeholder="",
+                        style={
+                            'width': f"{field['width']}%",  
+                            'height': f"{field['height']}%",  
+                            'padding': '10px',
+                            'fontSize': '16px',
+                            'border': '1px solid #ccc',
+                            'borderRadius': '5px',
+                            'backgroundColor': 'rgba(255, 255, 255, 0.8)',
+                            'resize': 'none',  
+                            #'pointerEvents': 'auto', 
+                            'pointerEvents': 'none',
+                            'opacity': '0.7' #
+                            
+                        }
+                    ),
+                    style={
+                        "position": "absolute",
+                        "top": f"{field['y']}%",  
+                        "left": f"{field['x']}%",  
+                        "width": f"{field['width']}%",  
+                        "height": f"{field['height']}%",  
+                        "transform": "translate(-50%, -50%)", 
+                    }
+                )
+            )
     
     # Automatisch alle Checkboxen generieren, die in CHECK_BOXES definiert sind
     check_boxes = []
