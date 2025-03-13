@@ -509,7 +509,11 @@ class MaskUnmasker:
             return None
 
 def unmask_page_93():
-    pass
+    print("unmask_page_93: wurde aufgerufen.")
+    global fill_mask
+    global TEXTFIELD_P93P94_VALUES
+    MaskUnmasker.unmask_sentence(fill_mask=fill_mask, page_eingabe=93, textfield_id_eingabe="text-93-7", textfield_id_ausgabe="text-93-8")
+    #print("Textfeld text-93-8 Value: TEXTFIELD_P93P94_VALUES["text-93-8"])
 
 def unmask_page_94():
     print("unmask_page_94: wurde aufgerufen.")
@@ -671,6 +675,9 @@ BUTTONS = {
     ],
     69: [
         #{"id": "button-69-1", "x": 12.5, "y": 83.5, "label": "Zeichenfenster oeffnen", "color": "blue", "background_color" : "grey" , "method": platzhaltermethode},
+    ],
+    93: [
+        {"id": "button-94-1", "x": 10, "y": 100, "label": "Analysieren", "color": "blue", "background_color" : "grey" , "method": unmask_page_93},
     ],
     94: [
         {"id": "button-94-1", "x": 10, "y": 34.5, "label": "Analysieren", "color": "blue", "background_color" : "grey" , "method": unmask_page_94},
