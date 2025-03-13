@@ -403,7 +403,7 @@ BUTTONS = {
         {"id": "button-69-1", "x": 12.5, "y": 83.5, "label": "Zeichenfenster oeffnen", "color": "blue", "background_color" : "grey" , "method": platzhaltermethode},
     ],
     93: [
-        {"id": "button-94-1", "x": 10, "y": 100, "label": "Analysieren", "color": "blue", "background_color" : "grey" , "method": platzhaltermethode},
+        {"id": "button-93-1", "x": 10, "y": 100, "label": "Analysieren", "color": "blue", "background_color" : "grey" , "method": platzhaltermethode},
     ],
     94: [
         {"id": "button-94-1", "x": 10, "y": 34.5, "label": "Analysieren", "color": "blue", "background_color" : "grey" , "method": platzhaltermethode},
