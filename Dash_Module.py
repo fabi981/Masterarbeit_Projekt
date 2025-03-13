@@ -461,8 +461,8 @@ TEXT_FIELD_VALUES = {
 #### Vorinitialisierung der Pipeline und Bestimmung, in welche Textfelder die MASK-Erratung wandert.
 fill_mask = pipeline("fill-mask", model="bert-base-cased")
 TEXTFIELD_P93P94_VALUES = {
-    "text-93-2": None,
-    "text-94-7": None,
+    "text-93-8": None,
+    "text-94-2": None,
 }
 
 ##### Erraedt maskierten Token eines Satzes der Form Ich trinke gerne [Mask].
