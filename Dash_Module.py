@@ -333,11 +333,11 @@ TEXT_FIELDS = {
         {"id": "text-93-6", "value": None, "x": 64, "y": 80, "width": 23, "height": 18.0, "changable": True},
         
         {"id": "text-93-7", "value": None, "x": 45, "y": 95, "width": 80, "height": 20.0, "changable": True},
-        {"id": "text-93-8", "value": None, "x": 45, "y": 102, "width": 80, "height": 20.0, "changable": True},
+        {"id": "text-93-8", "value": None, "x": 45, "y": 103, "width": 80, "height": 20.0, "changable": False},
     ],
     94: [#pruefen ob Seitenzahl passt
         {"id": "text-94-1", "value": None, "x": 40, "y": 38, "width": 70, "height": 30.0, "changable": True},
-        {"id": "text-94-2", "value": None, "x": 40, "y": 50, "width": 70, "height": 26.0, "changable": True},
+        {"id": "text-94-2", "value": None, "x": 40, "y": 50, "width": 70, "height": 26.0, "changable": False},
         
         {"id": "text-94-3", "value": None, "x": 28, "y": 85, "width": 25, "height": 17.0, "changable": True},
 
@@ -458,10 +458,11 @@ TEXT_FIELD_VALUES = {
     },
 }
 
+#### Vorinitialisierung der Pipeline und Bestimmung, in welche Textfelder die MASK-Erratung wandert.
 fill_mask = pipeline("fill-mask", model="bert-base-cased")
 TEXTFIELD_P93P94_VALUES = {
     "text-93-2": None,
-    "text-94-2": None,
+    "text-94-7": None,
 }
 
 ##### Erraedt maskierten Token eines Satzes der Form Ich trinke gerne [Mask].
@@ -677,7 +678,7 @@ BUTTONS = {
         #{"id": "button-69-1", "x": 12.5, "y": 83.5, "label": "Zeichenfenster oeffnen", "color": "blue", "background_color" : "grey" , "method": platzhaltermethode},
     ],
     93: [
-        {"id": "button-94-1", "x": 10, "y": 100, "label": "Analysieren", "color": "blue", "background_color" : "grey" , "method": unmask_page_93},
+        {"id": "button-94-1", "x": 10, "y": 90, "label": "Analysieren", "color": "blue", "background_color" : "grey" , "method": unmask_page_93},
     ],
     94: [
         {"id": "button-94-1", "x": 10, "y": 34.5, "label": "Analysieren", "color": "blue", "background_color" : "grey" , "method": unmask_page_94},
