@@ -456,16 +456,21 @@ TEXT_FIELD_VALUES = {
 }
 
 fill_mask = pipeline("fill-mask", model="bert-base-cased")
+TEXTFIELD_P93P94_VALUES = {
+    "text-93-2": None,
+    "text-94-2": None,
+}
+
 ##### Erraedt maskierten Token eines Satzes der Form Ich trinke gerne [Mask].
 class MaskUnmasker:
     @staticmethod
-    def unmask_sentence(fill_mask=None, page_eingabe=None, textfield_id_eingabe=None, page_ausgabe=None, textfield_id_ausgabe=None, text=None,  model_name="bert-base-cased"):
+    def unmask_sentence(fill_mask=None, page_eingabe=None, textfield_id_eingabe=None, textfield_id_ausgabe=None, text=None,  model_name="bert-base-cased"):
         """
         Ersetzt das [MASK]-Token im gegebenen Text durch das wahrscheinlichste Wort.
 
         Args:
             text (str): Der Text mit einem [MASK]-Token 
-            oder alternativ: page_eingabe (int), textfield_id_eingabe (str) und page_ausgabe (int), textfield_id_ausgabe (str): Nimmt den Textfeld inhalt vom Eingabetextfield und packt es in das Ausgabetextfield
+            oder alternativ: page_eingabe (int), textfield_id_eingabe (str) und textfield_id_ausgabe (str): Nimmt den Textfeld inhalt vom Eingabetextfield und packt es in das Ausgabetextfield
             model_name (str): Der Name des vortrainierten Modells (Standard: 'bert-base-cased').
 
         Returns:
@@ -473,6 +478,7 @@ class MaskUnmasker:
         """
         print("unmask_sentence: wurde aufgerufen")
         global TEXT_FIELD_VALUES
+        global TEXTFIELD_P93P94_VALUES
         try:
             # Initialisiere die fill-mask-Pipeline
             if fill_mask==None:
@@ -487,8 +493,8 @@ class MaskUnmasker:
             # Extrahiere die beste Vorhersage
             best_prediction = predictions[0]['sequence']  # Beste Vorhersage ausgeben
             print("unmask_sentence: BEST PREDICTION: ", best_prediction, " Typ der best_prediction: ", type(best_prediction))
-            if textfield_id_ausgabe != None:
-                TEXT_FIELD_VALUES[page_ausgabe][textfield_id_ausgabe] = best_prediction
+            if textfield_id_ausgabe != None and textfield_id_ausgabe in TEXTFIELD_P93P94_VALUES:
+                TEXTFIELD_P93P94_VALUES[textfield_id_ausgabe] = best_prediction
             
             return best_prediction
                 
@@ -505,8 +511,9 @@ def unmask_page_93():
 def unmask_page_94():
     print("unmask_page_94: wurde aufgerufen.")
     global fill_mask
-    MaskUnmasker.unmask_sentence(fill_mask=fill_mask, page_eingabe=94, page_ausgabe=94, textfield_id_eingabe="text-94-1", textfield_id_ausgabe="text-94-2")
-    #print("Textfeld text-94-2 Value: )
+    global TEXTFIELD_P93P94_VALUES
+    MaskUnmasker.unmask_sentence(fill_mask=fill_mask, page_eingabe=94, textfield_id_eingabe="text-94-1", textfield_id_ausgabe="text-94-2")
+    #print("Textfeld text-94-2 Value: TEXTFIELD_P93P94_VALUES["text-94-2"])
 
 
 # Checkboxes-Mapping: Checkboxen mit IDs; Seitenzahl -> Checkbox-ID -> Koordinaten/Skalierung/anfaenglicher Checked-Zustand 
@@ -2098,6 +2105,7 @@ def autosave_checkboxes(n_intervals, ids, values):
 @socketio_dashclient.on('textfields_to_dash')
 def handle_textfield_change(data=None):
     global TEXT_FIELD_VALUES
+    global TEXTFIELD_P93P94_VALUES #_Verbesserung
     print("handle_textfield_change: Erhaltene Textfelder: ", data)
     if data == None:
         return
@@ -2107,10 +2115,16 @@ def handle_textfield_change(data=None):
             #_LOGGING
             global SESSION_ID_VALUE
             old_value = TEXT_FIELD_VALUES[int(page_str)][text_field_id]
-            new_value = data[page_str][text_field_id]
+            if text_field_id in TEXTFIELD_P93P94_VALUES and TEXTFIELD_P93P94_VALUES[text_field_id] != None: #_Verbesserung
+                new_value = TEXTFIELD_P93P94_VALUES[text_field_id] #
+            else: #
+                new_value = data[page_str][text_field_id] #
             if old_value != new_value:
                 log_interaction(user_id=SESSION_ID_VALUE, element_id = "Textfield-Update", value = f"Textfeld auf Seite {page_str} mit Textfield-ID {text_field_id}. Alter Wert: {old_value}. Neuer Wert: {new_value}")
-            TEXT_FIELD_VALUES[int(page_str)][text_field_id] = data[page_str][text_field_id]
+            if text_field_id in TEXTFIELD_P93P94_VALUES and TEXTFIELD_P93P94_VALUES[text_field_id] != None: #
+                TEXT_FIELD_VALUES[int(page_str)][text_field_id] = TEXTFIELD_P93P94_VALUES[text_field_id] #
+            else: #
+                TEXT_FIELD_VALUES[int(page_str)][text_field_id] = data[page_str][text_field_id] #
     print("handle_textfield_change: TEXT_FIELD_VALUES: ", TEXT_FIELD_VALUES)
         
 @socketio_dashclient.on('checkboxes_to_dash')
