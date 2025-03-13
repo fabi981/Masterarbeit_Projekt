@@ -2054,6 +2054,13 @@ def autosave_texts(n_intervals, ids, values):
     current_ids = [dictionary['index'] for dictionary in ids]
     value_dict = dict(zip(current_ids, values))
     
+    #_Verbesserung
+    global TEXTFIELD_P93P94_VALUES
+    if "text-93-2" in value_dict and "text-93-2" in TEXTFIELD_P93P94_VALUES and TEXTFIELD_P93P94_VALUES["text-93-2"] != None:
+        value_dict["text-93-2"] = TEXTFIELD_P93P94_VALUES["text-93-2"]
+    if "text-94-2" in value_dict and "text-94-2" in TEXTFIELD_P93P94_VALUES and TEXTFIELD_P93P94_VALUES["text-94-2"] != None:
+        value_dict["text-94-2"] = TEXTFIELD_P93P94_VALUES["text-94-2"]
+    
     print("autosave_texts: IDs und Values: ", value_dict)
 
     try:
