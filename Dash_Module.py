@@ -2112,7 +2112,7 @@ def autosave_checkboxes(n_intervals, ids, values):
 @socketio_dashclient.on('textfields_to_dash')
 def handle_textfield_change(data=None):
     global TEXT_FIELD_VALUES
-    global TEXTFIELD_P93P94_VALUES #_Verbesserung
+    #global TEXTFIELD_P93P94_VALUES #_Verbesserung
     print("handle_textfield_change: Erhaltene Textfelder: ", data)
     if data == None:
         return
@@ -2122,16 +2122,16 @@ def handle_textfield_change(data=None):
             #_LOGGING
             global SESSION_ID_VALUE
             old_value = TEXT_FIELD_VALUES[int(page_str)][text_field_id]
-            if text_field_id in TEXTFIELD_P93P94_VALUES and TEXTFIELD_P93P94_VALUES[text_field_id] != None: #_Verbesserung
-                new_value = TEXTFIELD_P93P94_VALUES[text_field_id] #
-            else: #
-                new_value = data[page_str][text_field_id] #
+            #if text_field_id in TEXTFIELD_P93P94_VALUES and TEXTFIELD_P93P94_VALUES[text_field_id] != None: #_Verbesserung
+            #    new_value = TEXTFIELD_P93P94_VALUES[text_field_id] #
+            #else: #
+            new_value = data[page_str][text_field_id] #
             if old_value != new_value:
                 log_interaction(user_id=SESSION_ID_VALUE, element_id = "Textfield-Update", value = f"Textfeld auf Seite {page_str} mit Textfield-ID {text_field_id}. Alter Wert: {old_value}. Neuer Wert: {new_value}")
-            if text_field_id in TEXTFIELD_P93P94_VALUES and TEXTFIELD_P93P94_VALUES[text_field_id] != None: #
-                TEXT_FIELD_VALUES[int(page_str)][text_field_id] = TEXTFIELD_P93P94_VALUES[text_field_id] #
-            else: #
-                TEXT_FIELD_VALUES[int(page_str)][text_field_id] = data[page_str][text_field_id] #
+            #if text_field_id in TEXTFIELD_P93P94_VALUES and TEXTFIELD_P93P94_VALUES[text_field_id] != None: #
+            #    TEXT_FIELD_VALUES[int(page_str)][text_field_id] = TEXTFIELD_P93P94_VALUES[text_field_id] #
+            #else: #
+            TEXT_FIELD_VALUES[int(page_str)][text_field_id] = data[page_str][text_field_id] #
     print("handle_textfield_change: TEXT_FIELD_VALUES: ", TEXT_FIELD_VALUES)
         
 @socketio_dashclient.on('checkboxes_to_dash')
