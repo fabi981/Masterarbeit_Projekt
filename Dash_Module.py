@@ -332,8 +332,8 @@ TEXT_FIELDS = {
         {"id": "text-93-5", "value": None, "x": 47, "y": 72, "width": 23, "height": 18.0, "changable": True},
         {"id": "text-93-6", "value": None, "x": 64, "y": 80, "width": 23, "height": 18.0, "changable": True},
         
-        {"id": "text-93-7", "value": None, "x": 45, "y": 94, "width": 80, "height": 20.0, "changable": True},
-        {"id": "text-93-8", "value": None, "x": 45, "y": 105, "width": 80, "height": 20.0, "changable": True},
+        {"id": "text-93-7", "value": None, "x": 45, "y": 95, "width": 80, "height": 20.0, "changable": True},
+        {"id": "text-93-8", "value": None, "x": 45, "y": 102, "width": 80, "height": 20.0, "changable": True},
     ],
     94: [#pruefen ob Seitenzahl passt
         {"id": "text-94-1", "value": None, "x": 40, "y": 38, "width": 70, "height": 30.0, "changable": True},
