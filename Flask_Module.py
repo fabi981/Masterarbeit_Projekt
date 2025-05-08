@@ -61,6 +61,7 @@
 #import librosa.display
 #import plotly.graph_objs as go
 
+from transformers import AutoTokenizer
 
 #Imports
 from xmlrpc.client import boolean
@@ -449,6 +450,20 @@ def connect():
 
 #################### Javascript-Funktionalitaeten fuer die externen Fenster hier einbauen --> Aufruf via link moeglich
 #####Flask Routen
+@flask_app.route('/vokabelliste')
+def vokabelliste():
+    redirect('https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-german-dbmdz-uncased-vocab.txt', code=302)
+
+tokenizer = AutoTokenizer.from_pretrained("bert-base-german-uncased")
+
+@app.route('/tokenize', methods=['POST'])
+def tokenize_text():
+    data = request.get_json()
+    text = data.get("text", "")
+    tokens = tokenizer.tokenize(text)
+    return jsonify({"tokens": tokens})
+
+
 @flask_app.route('/zeichenfenster')
 def zeichenfenster():
     return render_template('zeichenfenster.html')   
