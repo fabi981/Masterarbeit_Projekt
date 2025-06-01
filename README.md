@@ -1,12 +1,19 @@
 **Die Lernumgebung**
 
 
+
 **Musterkapitel 4: Lernziele - Unterrichtsverlaufsplan - Weiterführende Materialien**
 
 
 
-**Anleitung zum Aufsetzen des Servers**
+Der Server ist leider gerade down.
 
+**Anleitung zum Testen der Umgebung (ohne Speicherung von Nutzerdaten)**
+
+1. Repository runterladen: git clone https://github.com/fabi981/Masterarbeit_Projekt.git (oder das Verzeichnis manuell herunterladen).
+2. Die Pakete der requirements.txt müssen installiert werden: pip install -r requirements.txt
+3. Die Apps sind auf den localhost '127.0.0.1' umgestellt. Falls es sich trotzdem nicht starten lässt: Die IP-Adresse in Zeile 99 des Dash-Module.py umstellen.
+4. Die Dash-App über die Konsole starten: python3 Masterarbeit_Projekt.py
 
 
 **Hinweise für Entwickler:**
