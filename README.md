@@ -85,7 +85,19 @@ einordnen.
 
 *Beschreibung:*
 
+Der Aufbau des biologischen Neurons (inklusive Zellkörper, Dendriten, Axon, synaptischem Spalt und Myelinhülle) wird erklärt und das Verständnis mit einer Lückentext-Aufgabe überprüft. 
 
+##Hier Abbildung##
+
+Der elektrische Übertragungsweg zwischen Nervenzellen (inklusive Ruhepotential, Reizsschwellen, Depolarisation, Repolarisation, Hyperporatisation und Signalstärke) wird erläutert. Das Verständnis wird anhand einer Beschreibungsaufgabe überprüft.
+
+#Hier Abbildungen#
+
+Hieraus wird das technische Korrelat der Aktivierungsfunktionen und der Gewichte (inklusive Schwellenwert) hergeleitet.
+
+Der chemische Übertragungsweg zwischen Nervenzellen (inklusive der Beschreibung einzelner Neurotransmitter und ihrer Funktionen) wird erläutert, um das Verständnis des biologischen Neurons abzurunden.
+
+#Abbildung einfügen#
 
 ***Kapitel 3: Anwendungsszenarien und Beispielmodelle zur Emotionserkennung***
 
@@ -93,14 +105,19 @@ einordnen.
 
 Die SuS...
 
-... analysieren Emotionen auf Fotos mithilfe eines
-Klassifikationsmodells.
+... analysieren Emotionen auf Fotos mithilfe von Klassifikationsmodellen der Sprach-, Text- und Bilderkennung.
 
-...  interpretieren Emotionen in eigenen Sprachmemos.
+...  interpretieren Emotionen der Mitschüler und vergleichen ihre Klassifikationsleistung mit dem Modell.
 
-...  untersuchen Emotionen in Texten durch Einsatz eines TextEmotionserkennungsmodells.
+...  untersuchen Emotionen in YouTube-Kommentartexten.
+
+... werden dazu motiviert, eigene Modelle der HuggingFace-Bibliothek auszutesten.
 
 *Beschreibung:*
+
+Im ersten Schritt testen SuS die Modelle: Sie schießen gegenseitig bilder und nehmen Sprachnachrichten auf, in denen sie sich fragen stellen. Dies geschieht direkt in der Lernumgebung. Zwei Funktionen stehen zur Verfügung (die jedoch noch ein wenig Debugging erfordern). Sie können ihre Aufzeichnungen per Button-Klick direkt hochladen, sodass die Modelle ihre Emotionen auswerten. Im Anschluss folgen weitere Aufgaben, in denen sie diskutieren, wer die Emotionen besser interpretiert: Mensch oder Maschine. Es folgt eine Transferaufgabe (KI-Perspektive), in denen diskutiert wird, wo solche Technologien eingesetzt werden (könnten). 
+
+#Bilder einfügen#
 
 ***Kapitel 4: Tokenisierung und Encoding von Eingabedaten***
 
@@ -122,7 +139,9 @@ Die SuS...
 
 *Beschreibung:*
 
+Die SuS durchlaufen den gesamten Prozess der Eingabe eines Satzes in ein BERT-Modell bis hin zum Entstehen der Vektor-Eingaben, die vom BERT-Encoder verarbeitet werden. Die Verarbeitungsschritte umfassen die Tokenisierung (d. h. das Zerlegen der Wörter des Satzes in Tokens bzw. Fragmente), das Auslesen der IDs der Tokens, das Ablesen der Einbettungen aus einer Embedding-Tabelle und das Positional Encoding (um die Bedeutung der Position der Tokens im Satz einfließen zu lassen). Dieses Kapitel wird weiter unten näher erläutert und mit einer Unterrichtsstruktur für eine Doppelstunde umrahmt.
 
+#Abbildung einfügen#
 
 ***Kapitel 5: Das Innenleben des BERT-Modells: Die Encoderschichten***
 
@@ -134,6 +153,14 @@ Die SuS...
 
 
 *Beschreibung:*
+
+Was genau mit den Worteinbettungen des Satzes im Modell geschieht, wird in diesem Kapitel erläutert: Ein Transformer besteht aus z.B. L=12 Schichten. Von Schicht zu Schicht werden die Einbettungsvektoren mit Gewichten im Rahmen von linearen Transformationen (durch ein Feedforward-Netzwerk) verarbeitet. Dabei greift eine nicht-lineare GELU-Aktivierungsfunktion, die eine gute Menge der Signale am Übertragen verhindert (analog zum menschlichen Körper, wie in Kapitel 2 beschrieben). 
+
+#Hier Bild einfügen#
+
+Dieses Kapitel muss um einen Explorationsblock angereichert werden. D.h. hier fehlen Aufgaben und Veranschaulichungen für das vertiefte Verständnis.
+
+Die Besonderheit bzw. Innovation von Transformatoren ist es, dass vor der linearen Transformation ein Self-Attention-Mechanismus greift. Dies ist Thema von Kapitel 7.
 
 ***Kapitel 6: Das Vortraining des BERT-Modells***
 
@@ -148,6 +175,16 @@ Die SuS...
 ...  verstehen die Vortrainingsaufgabe der Next Sentence Prediction.
 
 *Beschreibung:*
+
+Vortraining in BERT umfasst die beiden Aufgaben 'Masked Language Modeling' und 'Next Sentence Prediction'. Sie erzeugen im Bert-Modell ein allgemeines, rudimentäres Sprachverständnis und sind inspiriert durch das Lesenlernen von Kindern: 'Masked Language Modeling' sind einfach formuliert Lückentext-Aufgaben, in denen das Modell teilen des Trainingstextes [MASK]-Tokens zuweist und versucht, diese richtig zu erraten. Bei der 'Next Sentence Prediction' versucht das Modell bei zwei Sätzen A und B zu erraten, ob B semantisch auf Satz A folgen könnte.
+
+Bisher existieren zu diesem Kapitel ein einleitender Text und eine Beschreibung der Trainingsprozesse.
+
+#Abbildung#
+
+Außerdem wurden verständisprüfende Multiple-Choice-Aufgaben und Aufgaben zum Durchführen der beiden Vorgänge eingebaut. Im Sinne der Exploration könnte dies durch weitere, umfangreichere Aufgaben ergänzt werden.
+
+#Abbildung#
 
 ***Kapitel 7: Der Self-Attention-Mechanismus***
 
@@ -165,6 +202,8 @@ gewichtet werden.
 
 *Beschreibung:*
 
+Hierzu liegt lediglich eine grobe Ideenskizze vor: Die sechs Schritte der Berechnung der Self-Attention werden Schritt für Schritt durchlaufen. Dies muss explorative geschehen. D.h. die SuS sehen in jedem Schritt genau, was gerade mit dem Embedding-Vektor passiert. BertVIZ (https://github.com/jessevig/bertviz) ist hierfür eine gute Grundlage. Es visualisiert die Aufmerksamkeits-Scores: Es können zwei Sätze A und B in dieses Tool eingegeben werden. Für jede einzelne Transformerschicht kann BERTViz eingesehen, wie relevant ein Wort des Satzes A für für die umliegenden Wörter des Satzes B ist (und umgekehrt). Ein Thema einer anderen Abschlussarbeit könnte sein, dieses BERTViz Tool weiterzuentwickeln, sodass sämtliche Schritte der Self-Attention auf visueller Ebene offengelegt werden.  
+
 ***Kapitel 8: Der erweiterte Self-Attention-Mechanismus: Multi-Headed-Self-Attention***
 
 *Groblernziele und Kompetenzen:*
@@ -177,6 +216,7 @@ Einbettungen auf mehrere Köpfe aufgeteilt und parallel zueinander werden.
 
 *Beschreibung:*
 
+Multi-Headed-Self-Attention verfeinert den Mechanismus aus Kapitel 7, indem ein Einbettungsvektor in z.B. zwölf Teilvektoren aufgeteilt wird und diese separat eine Self-Attention durchlaufen und schließlich wieder zusammengesetzt werden. Auch hierzu existieren noch keine explorativen Blöcke.
 
 **Musterkapitel 4: Lernziele - Unterrichtsverlaufsplan - Weiterführende Materialien**
 
