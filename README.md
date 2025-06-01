@@ -1,3 +1,14 @@
+**Die Lernumgebung**
+
+
+**Musterkapitel 4: Lernziele - Unterrichtsverlaufsplan - Weiterführende Materialien**
+
+
+
+**Anleitung zum Aufsetzen des Servers**
+
+
+
 **Hinweise für Entwickler:**
 
 *pages_10:* Enthält die Hintergrundbilder der Lernumgebung in ihrer aktuellsten Version. Diese wurden in GoodNotes erstellt und in PNG konvertiert.
@@ -29,15 +40,6 @@ Positionierung und Format der Textfelder werden im Dictionary *TEXT_FIELDS (Zeil
 Positionierung und Format der  Checkboxen werden im Dictionary CHECK_BOXES *(Codezeile 531)* zentral festgelegt. 
 
 Alle weiteren Elemente wurden im *app.layout (Zeile 977)* definiert.
-
-
-**Grobstrukturierung der Lernumgebung**
-
-
-**Feinstruktur von Musterkapitel 4: Lernziele - Unterrichtsverlaufsplan - Weiterführende Materialien**
-
-
-**Anleitung zum Aufsetzen des Servers**
 
 
 
