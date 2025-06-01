@@ -1,5 +1,7 @@
 **Die Lernumgebung**
 
+#Hier einen kleinen Text einfügen.#
+
 *Zielgruppe:* Schülerinnen und Schüler der zwölften Klasse eines Informatik-LKs
 
 *Nötige Vorkenntnisse:* Vektorrechnung und Matrizenrechnung (oder wenigstens eines der beiden)
